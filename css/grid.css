@@ -18,15 +18,15 @@
     /* grid-template-columns: 1fr 1fr 1fr;          /* fr : fraction(뜻은 여기로)인데, 숫자 비율대로 트랙의 크기를 나눔. 즉 1fr 1fr 1fr은 균일하게 1:1:1 비율인 3개의 column을 만들겠다는 의미.*/
     /* grid-template-columns: 100px 2fr 1fr; */     /* 이렇게 하면 왼쪽의 첫번째 column은 100px로 고정되고, 나머지 두번째 세번째 column은 2:1의 비율로 유연하게 움직임 */
 
-    /* repeat */
+    /* ------------------------- repeat */
     /* 반복되는 값을 자동으로 처리할 수 있는 함수. repeat(반복 횟수, 반복 값). 즉 이거는 1fr 1fr 1fr과 같다. repeat(3, 1fr 4fr 2fr); 이런 식의 패턴도 가능.*/
     /* grid-template-columns: repeat(3, 1fr); */    
 
-    /* minmax */
+    /* ------------------------- minmax */
     /* 최소값과 최대값을 지정. 최소 100px, 최대는 자동으로 늘어가게 라는 뜻이 됨. */
     /* grid-template-rows: repeat(3, minmax(100px, auto)); */   
 
-    /* auto-fill, auto-fit */
+    /* ------------------------- auto-fill, auto-fit */
     /* auto-fill : 컬럼의 갯수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한으로 셀을 채운다. auto-fill의 크기를 20%로 설정했으니까 1개의 row에는 5개의 셀이 들어간다. */
     /* auto-fit : auto-fill이랑 차이점은 만약 위의 경우 항목이 4개 밖에 안된다면 마지막 셀 부분은 빈공간이 된다. 같은 상황에서 auto-fit을 사용하면 4개가 알아서 100% 비율에 맞춰짐 */
     /* grid-template-columns: repeat(auto-fill, minmax(20%, auto)); */  
@@ -35,7 +35,7 @@
     /* grid-template-columns: 200px 1fr; */
     /* grid-template-columns: 100px 200px auto; */
 
-    /* gap */
+    /* ------------------------- gap */
     /* grid cell 사이의 간격을 설정 */
     gap: 20px;
     /* gap: 10px 20px; */ /* row-gap: 10px; column-gap: 20px; 이랑 같음 */
@@ -47,9 +47,22 @@
     /* grid-gap: 20px;
     gap: 20px; */
 
-    /* grid-auto-columns, grid-template-rows */
+    /* ------------------------- grid-auto-columns, grid-auto-rows */
     /* 그리드 형태를 자동으로 정의 */
     /* grid-template-columns(또는 grid-template-rows)의 통제를 벗어난 위치에 있는 트랙의 크기를 지정하는 속성. 속성 이름이 헷갈린다면 -template- 자리에 – auto-가 들어간다고 생각하자 */
+    
     /* 예를 들어 */
     /* grid-template-rows: repeat(3, minmax(100px, auto)); 각 셀마다 최소 100px의 높이를 확보하고, 컨텐츠의 높이가 100px를 넘어가면 알아서 늘어나도록 auto 하려고 저 코드를 썼는데, 우리가 만든 row가 3개였기 때문에 repeat3으로 지정했지만, row의 개수를 미리 알 수 없는 경우라면? */
+    /* grid-auto-rows: minmax(100px, auto); 이렇게 grid-auto-rows를 써주면, 굳이 횟수를 지정해서 반복할 필요 없이 "알아서" 처리 됨. 즉, grid-template-rows로 미리 세팅해둔 것이 없기 때문에 여기 있는 모든 row들은 get-template-rows의 통제를 벗어난 row가 되는 것이고, 바로 grid-auto-rows가 처리를 하는 것. 통제를 벗어났다는 의미는 바로 이 것이다. */
+    
+    
+}
+
+.item:nth-child(1){
+    /* ------------------------- grid-column-start, grid-column-end, grid-column, grid-row-start, grid-row-end, grid-row */
+    /* Grid 아이템에 적용하는 속성으로, 각 셀의 영역을 지정한다. */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
