@@ -55,14 +55,94 @@
     /* grid-template-rows: repeat(3, minmax(100px, auto)); 각 셀마다 최소 100px의 높이를 확보하고, 컨텐츠의 높이가 100px를 넘어가면 알아서 늘어나도록 auto 하려고 저 코드를 썼는데, 우리가 만든 row가 3개였기 때문에 repeat3으로 지정했지만, row의 개수를 미리 알 수 없는 경우라면? */
     /* grid-auto-rows: minmax(100px, auto); 이렇게 grid-auto-rows를 써주면, 굳이 횟수를 지정해서 반복할 필요 없이 "알아서" 처리 됨. 즉, grid-template-rows로 미리 세팅해둔 것이 없기 때문에 여기 있는 모든 row들은 get-template-rows의 통제를 벗어난 row가 되는 것이고, 바로 grid-auto-rows가 처리를 하는 것. 통제를 벗어났다는 의미는 바로 이 것이다. */
     
-    
+    /* ------------------------- grid-template-areas */
+    /* 각 영역(Grid Area)에 이름을 붙이고, 그 이름을 이용해서 배치하는 방법 */
+    grid-template-areas: 
+        " header header header"
+        " a main b"
+        " . . ."
+        " footer footer footer";
+    /* 위 같이 각자 차지하는 셀의 갯수 만큼 해당 위치에 이름을 써주면 되고
+    각 셀마다 공백을 하나씩 넣어서 구분.
+    header는 첫번째 row에서 3개의 column을 차지하니 맨 위에 3번 쓴 것이다.
+    빈 칸은 마침표 또는 none을 사용하면 되고 마침표의 갯수는 여러개를 써도 상관 없다. */
+
+    /* ------------------------- place-content */
+    /* align-content와 justify-content를 같이 쓸 수 있는 단축 속성.
+    align-content, justify-content의 순서로 작성하고, 하나의 값만 쓰면 두 속성 모두에 적용됨. */
+
+    place-content: space-between center;
 }
 
 .item:nth-child(1){
     /* ------------------------- grid-column-start, grid-column-end, grid-column, grid-row-start, grid-row-end, grid-row */
     /* Grid 아이템에 적용하는 속성으로, 각 셀의 영역을 지정한다. */
+
+    /* 1. 시작 번호 / 끝 번호 지정 */
     grid-column-start: 1;
     grid-column-end: 3;
+    /* grid-column: 1 / 3; 이 것도 똑같음*/
+
     grid-row-start: 1;
     grid-row-end: 2;
+    /* grid-row: 1 / 2; 위 2개랑 똑같음 */
+
+    /* 2. 몇 개의 셀을 차지하게 할 것인가를 지정 */
+    /* 1번 라인에서 2칸 */
+    /* grid-column: 1 / span 2; */
+    /* 1번 라인에서 3칸 */
+    /* grid-row: 1 / span 3; */
+    /* TIP : end를 생략하면 그냥 한 칸임 */
+
+    /* ------------------------- align-self */
+    /* 개별 아이템 세로 정렬 */
+    align-self: stretch;
+    /* align-self: start; */
+    /* align-self: center; */
+    /* align-self: end; */
+
+    /* ------------------------- justify-self */
+    /* 개별 아이템 가로 정렬 */
+    justify-self: stretch;
+    /* justify-self: start; */
+    /* justify-self: center; */
+    /* justify-self: end; */
+
+    /* ------------------------- place-self */
+    /* align-self, justify-self 같이 쓸 수 있는 단축 속성.*/
+    /* align-self, justify-self의 순서로 작성하고, 하나의 값만 쓰면 두 속성 모두에 적용 */
+    /* place-self: start center; */
+}
+
+/* order */
+/* 배치 순서 */
+/* 각 아이템들의 시각적 나열 순서를 결정하는 속성. 
+숫자 값이 들어가며, 작은 숫자일 수록 먼저 배치된다. "시각적" 순서일 뿐, HTML 자체의 구조를 바꾸는 것은 아니므로 접근성 측면에서 주의*/
+.item:nth-child(2){
+    order: 3;
+}
+
+.item:nth-child(3){
+    order: 2;
+}
+
+/* grid-template-areas에서 지정한 영역 이름은 이렇게 매칭해준다. */
+.header{
+    grid-area: header;
+}
+
+.sidebar-a{
+    grid-area: a;
+}
+
+.main_content{
+    grid-area: main;
+}
+
+.sidebar-b{
+    grid-area: b;
+}
+
+.footer{
+    grid-area: footer;
 }
