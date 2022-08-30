@@ -1,1 +1,57 @@
 <!-- canvas태그 사용법 -->
+<!-- 도형을 그린다거나, 원하는 위치에 그래픽적 요소를 자유자재로 배치를 한다거나, 게임을 만든다거나, 그래프도 손쉽게 그려 낼 수가 있습니다. -->
+<!-- 결론: 그림 그리는거임 -->
+
+    <!-- 
+        속성                설명
+    strokeStyle	     선색
+    lineWidth        선의 굵기
+    lineCap            선의 끝부분의 모양 형태
+    lineJoin            선의 연결 형태
+    miterLimit        lineJoin의 값이 milter의 경우 연결되는 부분의 길이
+    fillStyle             면색 
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>canvas</title>
+    </head>
+    <link rel="stylesheet" href="../css/canvas.css">
+    <body>
+        <!-- 1. 컨버스 태그 삽입 -->
+        <canvas id="p-canvas" width="300" height="300"></canvas>
+        <script>
+            // 2. 캔버스 요소 가져오기
+            let ele_canvas = document.getElementById("p-canvas");
+            // 3. 드로잉용 컨텍스트 생성
+            let context_canvas = ele_canvas.getContext("2d");
+            // 4. 생성한 컨텍스트를 이용해서 드로잉 하기
+
+            // //////////////////////////////////////////////////////////////////////////////// 기본 템플릿
+                // context_canvas.fillStyle = "#cc0000"; // 색상
+                // context_canvas.fillRect(0, 0, 300, 300); // 도형
+
+            // //////////////////////////////////////////////////////////////////////////////// 선과 면
+                context_canvas.strokeStyle = "red"; // border(선)색
+                context_canvas.lineWidth = "20";
+                context_canvas.fillStyle = "#c1c1c1"; // 면색상
+                
+                //드로잉
+                // 기본 템플릿 코드랑 다른 점은 fillRect 함수가 아니라 rect 함수를 사용했다는 점.
+                // 전자가 함수를 사용하는 시점에 도형을 드로잉 하게 된다고 하면 후자의 경우는 그 시점에서 실제적으로 드로잉 하지는 않는다는 점이다.
+                // stroke 함수가 실행되어졌을 때 선이 그려지고 fill 함수가 실행되어졌을 때에 면색이 채워지면서 비로소 원하는 형태의 드로잉이 되는 것.
+                // 결론 : 각각 색상이라던가 하는 속성을 정의 해두고. 밑에 stroke()와 fill()로 실행하는 것.
+                context_canvas.rect(20, 20, 200, 200); // 도형
+                context_canvas.stroke(); // 선        
+                context_canvas.fill(); // 면색
+
+            // //////////////////////////////////////////////////////////////////////////////// 좌표
+                // context.fillRect(x, y, w, h);
+                // 파라미터는 이렇게 4가지를 받고
+                // 첫번째로 x는 좌표 (x, y)의 x의 값을, y는 좌표(x, y)의 y 값을, w는 도형의 넓이, 그리고 마지막 h에는 도형의 높이를 지정.
+
+        </script>
+    </body>
+</html>
