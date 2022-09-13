@@ -1,0 +1,49 @@
+.container {
+  /* 컨테이너 기본 설정 */
+  display: flex;
+  /* flex 방향 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* wrap과 wrap 되었을 때의 간격 */
+  flex-wrap: wrap; /* 주어진 아이템들이 상위 wrapper의 길이를 넘어가게 됐을 때 flex-wrap: wrap을 안주면 상위 wrapper에 맞춰 찌그러짐. nowwrap 속성이 기본 값이기 때문*/
+  align-content: center; /* flex-wrap: wrap;이 설정된 상ㅌ태에서, 아이템들의 행이 2줄 이상 되었을 때의 수직축 방향 정렬을 결정하는 속성. default는 stretch. */
+
+  /* flex-direction과 flex-wrap의 줄임 표시 */
+  /* flex-flow: [flex방향] [wrap 여부] */
+  flex-flow: row wrap;
+}
+
+.item {
+  width: 80%;
+  height: 100px;
+
+  /* flex 아이템에 먹이는 속성들 */
+  /* 가장 많이 쓰는 3개 */
+
+  /* flex-basis: 아이템의 기본 크기를 지정. flex-grow나 shrink로 늘어나거나 줄어들기 전의 기본 크기를 설정. 
+  flex-direction이 row라면 basis는 가로. column이면 세로를 의미. 
+  어디까지나 기본 크기이기 때문에 이 크기보다 큰 아이템들은 자신들의 크기를 유지한다. 
+  강제로 width, height를 주면 강제로 해당 크기를 유지하기 때문에 flex-basis와는 차이가 있음. */
+  flex-basis: 30%;
+  /* 아이템이 기본 값을 넘어 넓어질 수 있는지를 설정함. 1만 줘도 화면 긑까지 꽉 채움. 아이템을 화면에 꽉 채우는데 유용함.
+    1이며 ㄴ늘어나고 0이면 안늘어난다. 대개 wrap으로 넘쳐서 삐져나온 한 아이템의 크기가 화면 끝까지 늘어나게 할 것인지 고유한 크기를 유지하게 할 것인지를 결정하는데 사용.
+    숫자를 이용해 아이템의 여백의 비율을 조정할 수도 있음. (아이템 크기의 비율이 아님에 주의하자)*/
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex: 1 1 30%;
+
+  /* 순서. 기본값은 0 */
+  order: 1;
+
+  /* 아이템의 align-items 개별 조절 */
+  align-self: center;
+}
+
+.item:nth-child(even) {
+  background: gray;
+}
+.item:nth-child(odd) {
+  background: red;
+}
