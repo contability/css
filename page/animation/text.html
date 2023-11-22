@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>text-animation</title>
+  </head>
+  <link rel="stylesheet" href="../../css//animation/text.css" />
+  <script type="text/javascript" src="../../js/container-08.js"></script>
+  <body>
+    <article>
+      <!-- section-01 -->
+      <section class="container-01">
+        <div>
+          <h1>webs</h1>
+        </div>
+      </section>
+
+      <!-- section-02 -->
+      <section class="container-02">
+        <h1>
+          <span>w</span>
+          <span>e</span>
+          <span>b</span>
+          <span>s</span>
+          <span>t</span>
+          <span>o</span>
+          <span>r</span>
+          <span>y</span>
+          <span>b</span>
+          <span>o</span>
+          <span>y</span>
+        </h1>
+      </section>
+
+      <!-- section-03 -->
+      <section class="container-03">
+        <div class="wrapper">
+          <div class="focus">webs</div>
+          <div class="mask">
+            <div class="text">webs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section-04 -->
+      <section class="container-04">
+        <h1 data-shadow="webs!">webs!</h1>
+      </section>
+
+      <!-- section-05 -->
+      <section class="container-05">
+        <div class="wrapper">
+          <h1 contenteditable data-heading="webs">webs</h1>
+        </div>
+      </section>
+
+      <!-- section-06 -->
+      <section class="container-06">
+        <h1>webs</h1>
+      </section>
+
+      <!-- section-07 -->
+      <section class="container-07">
+        <h1>webs</h1>
+      </section>
+
+      <!-- section-08 -->
+      <section class="container-08">
+        <main class="{{color}}" ng-app="app" ng-controller="neon">
+          <div class="bg"></div>
+          <input
+            autofocus
+            id="focus"
+            class="input-text"
+            type="text"
+            name="userName"
+            ng-model="user.name"
+            ng-model-options="{ getterSetter: true }"
+          />
+
+          <div class="buttons">
+            <button class="btn-pink" ng-click="getColor('pink')"></button>
+            <button class="btn-yellow" ng-click="getColor('yellow')"></button>
+            <button class="btn-green" ng-click="getColor('green')"></button>
+            <button class="btn-blue" ng-click="getColor('blue')"></button>
+          </div>
+
+          <div class="wrapper">
+            <h1 class="font1">
+              <span ng-bind="webs" id="userNameRes"></span>
+              <h2 class="font2">neon by @interaminense</h2>
+            </h1>
+          </div>
+        </main>
+      </section>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,622 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(https://fonts.googleapis.com/css?family=Monoton);
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+
+$target: #fff;
+$bg: #e6e2df;
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // position: relative;
+}
+
+body {
+  article {
+    display: flex;
+    flex-direction: column;
+
+    .container-01 {
+      font-family: "Press Start 2P", cursive;
+      background: #59c4b4;
+      height: 100vh;
+      div {
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        width: 250px;
+        height: 250px;
+
+        h1 {
+          color: #fff;
+          font-size: 80px;
+          transform: rotate(20deg) skew(-20deg);
+          -webkit-transform: rotate(20deg) skew(-20deg);
+          -moz-transform: rotate(20deg) skew(-20deg);
+          -o-transform: rotate(20deg) skew(-20deg);
+          -ms-transform: rotate(20deg) skew(-20deg);
+          text-shadow: 1px 1px 0 #51b3a3, 2px 2px 0 #51b3a3, 3px 4px 0 #51b3a3,
+            4px 5px 0 #51b3a3, 5px 7px 0 #51b3a3, 6px 8px 0 #51b3a3,
+            7px 10px 0 #51b3a3, 8px 11px 0 #51b3a3, 9px 13px 0 #51b3a3,
+            10px 14px 0 #51b3a3, 11px 16px 0 #51b3a3, 12px 17px 0 #51b3a3,
+            13px 19px 0 #51b3a3, 14px 20px 0 #51b3a3, 15px 22px 0 #51b3a3,
+            16px 23px 0 #51b3a3, 17px 25px 0 #51b3a3, 18px 26px 0 #51b3a3,
+            19px 28px 0 #51b3a3, 20px 29px 0 #51b3a3, 21px 30px 0 #389788,
+            23px 31px 0 #389788, 24px 32px 0 #389788, 26px 33px 0 #389788,
+            27px 34px 0 #389788, 29px 35px 0 #389788, 30px 36px 0 #389788,
+            32px 37px 0 #389788, 33px 38px 0 #389788, 35px 39px 0 #389788,
+            36px 40px 0 #389788, 38px 41px 0 #389788, 39px 42px 0 #389788,
+            41px 43px 0 #389788, 42px 44px 0 #389788, 44px 45px 0 #389788,
+            45px 46px 0 #389788, 47px 47px 0 #389788, 48px 49px 0 #7ee5d6,
+            49px 51px 0 #7ee5d6, 50px 53px 0 #7ee5d6, 51px 55px 0 #7ee5d6,
+            52px 57px 0 #7ee5d6, 53px 59px 0 #7ee5d6, 54px 61px 0 #7ee5d6,
+            55px 63px 0 #7ee5d6, 56px 65px 0 #7ee5d6, 57px 67px 0 #7ee5d6,
+            58px 69px 0 #7ee5d6, 59px 71px 0 #7ee5d6, 60px 73px 0 #7ee5d6,
+            61px 75px 0 #7ee5d6, 62px 77px 0 #7ee5d6, 63px 79px 0 #7ee5d6,
+            65px 80px 0 #51b3a3, 68px 81px 0 #51b3a3, 70px 82px 0 #51b3a3,
+            72px 83px 0 #51b3a3, 74px 84px 0 #51b3a3, 76px 85px 0 #51b3a3,
+            78px 86px 0 #51b3a3, 80px 87px 0 #51b3a3, 82px 88px 0 #51b3a3,
+            84px 89px 0 #51b3a3, 86px 90px 0 #51b3a3, 88px 91px 0 #51b3a3,
+            90px 92px 0 #51b3a3;
+        }
+      }
+    }
+
+    .container-02 {
+      width: 100%;
+      height: 100vh;
+      background: #ff7777;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        height: 100px;
+      }
+
+      h1 span {
+        position: relative;
+        top: 20px;
+        display: inline-block;
+        animation: bounce 0.3s ease infinite alternate;
+        font-family: "Titan One", cursive;
+        font-size: 80px;
+        color: #fff;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+          0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent,
+          0 8px 0 transparent, 0 9px 0 transparent,
+          0 10px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      h1 span:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      h1 span:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      h1 span:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      h1 span:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      h1 span:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      h1 span:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+
+      @keyframes bounce {
+        100% {
+          top: -20px;
+          text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+            0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+            0 50px 25px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    .container-03 {
+      width: 100%;
+      height: 100vh;
+      background: #72b565;
+      position: relative;
+
+      .wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 235px;
+        height: 70px;
+        white-space: nowrap;
+      }
+
+      .focus {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: Arial;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        filter: blur(3px);
+        font-size: 65px;
+        opacity: 0.6;
+        color: #fff;
+      }
+
+      .mask {
+        position: absolute;
+        left: -10px;
+        top: -7px;
+        width: 70px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 65px;
+        clip: rect(0px, 70px, 75px, 0px);
+        background: linear-gradient($target, $target 0) no-repeat,
+          linear-gradient(to right, $target, $target 0) no-repeat,
+          linear-gradient(to right, $target, $target 0) bottom left no-repeat,
+          linear-gradient(to right, $target, $target 0) bottom left no-repeat,
+          linear-gradient($target, $target 0) bottom right no-repeat,
+          linear-gradient($target, $target 0) bottom right no-repeat,
+          linear-gradient($target, $target 0) top right no-repeat,
+          linear-gradient($target, $target 0) top right no-repeat;
+        background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px, 2px 10px,
+          10px 2px, 10px 2px, 2px 10px, 10px 2px;
+        color: #fff;
+        padding: 5px;
+        transform: translateX(0);
+        box-sizing: border-box;
+        animation: mask 2.5s ease infinite alternate;
+      }
+
+      .text {
+        transform: translateX(0);
+        animation: text 2.5s ease infinite alternate;
+      }
+
+      @keyframes mask {
+        to {
+          transform: translateX(170px);
+        }
+      }
+
+      @keyframes text {
+        to {
+          transform: translateX(-170px);
+        }
+      }
+    }
+
+    .container-04 {
+      * {
+        position: relative;
+      }
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: hsla(230, 40%, 50%, 1);
+
+      &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0;
+        height: 100%;
+      }
+
+      h1 {
+        display: inline-block;
+        color: white;
+        font-family: "Righteous", serif;
+        font-size: 12em;
+        text-shadow: 0.03em 0.03em 0 hsla(230, 40%, 50%, 1);
+        z-index: 1;
+      }
+      h1:after {
+        content: attr(data-shadow);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: -1;
+        text-shadow: none;
+        background-image: linear-gradient(
+          45deg,
+          transparent 45%,
+          hsla(48, 20%, 90%, 1) 45%,
+          hsla(48, 20%, 90%, 1) 55%,
+          transparent 0
+        );
+        background-size: 0.05em 0.05em;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: shad-anim 15s linear infinite;
+      }
+
+      @keyframes shad-anim {
+        0% {
+          background-position: 0 0;
+        }
+        0% {
+          background-position: 100% -100%;
+        }
+      }
+    }
+
+    .container-05 {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(45deg, $bg 80%, #c2c1bd 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+
+      .wrapper {
+        width: 100%;
+        font-family: "Source Code Pro", monospace;
+        margin: 0 auto;
+        height: 100%;
+
+        h1 {
+          text-transform: uppercase;
+          transform: translate(-50%, -50%) skew(10deg) rotate(-10deg);
+          font-size: 20vw;
+          top: 50%;
+          left: 50%;
+          margin: 0;
+          position: absolute;
+          text-rendering: optimizeLegibility;
+          font-weight: 900;
+          color: rgba(#ff9eb1, 0.5);
+          text-shadow: 1px 4px 6px $bg, 0 0 0 #66303a, 1px 4px 6px $bg;
+          white-space: nowrap;
+
+          &:before {
+            content: attr(data-heading);
+            position: absolute;
+            left: 0;
+            top: -4.8%;
+            overflow: hidden;
+            width: 100%;
+            height: 50%;
+            color: #fbf7f4;
+            transform: translate(1.6vw, 0) skew(-13deg) scale(1, 1.2);
+            z-index: 2;
+            text-shadow: 2px -1px 6px rgba(0, 0, 0, 0.2);
+          }
+
+          &:after {
+            content: attr(data-heading);
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            color: #d3cfcc;
+            transform: translate(0vw, 0) skew(13deg) scale(1, 0.8);
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+            text-shadow: 2px -1px 6px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+
+    .container-06 {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      background: linear-gradient(to bottom right, #ff813d, #ff1500);
+      text-rendering: optimizeLegibility;
+      overflow: hidden;
+
+      h1 {
+        text-transform: uppercase;
+        animation: layerize cubic-bezier(0.4, 0, 0.2, 1) 1200ms 200ms infinite
+          alternate;
+        opacity: 0;
+        width: 100%;
+        color: #fff;
+        font: italic 500 14vw "Roboto", sans-serif;
+        cursor: default;
+        user-select: none;
+        text-align: center;
+      }
+
+      @keyframes layerize {
+        0% {
+          opacity: 0;
+          transform: translate(0, 0);
+          text-shadow: 0 0 transparent, 0em 0em rgba(255, 255, 255, 0.4),
+            0em 0em rgba(255, 255, 255, 0.3), 0em 0em rgba(255, 255, 255, 0.2),
+            0em 0em rgba(255, 255, 255, 0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(-0.066666em, -0.066666em);
+          text-shadow: 0 0 transparent,
+            0.033333em 0.033333em rgba(255, 255, 255, 0.4),
+            0.066666em 0.066666em rgba(255, 255, 255, 0.3),
+            0.099999em 0.099999em rgba(255, 255, 255, 0.2),
+            0.133332em 0.133332em rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    .container-07 {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ece4d9 0%, #e9dfd1 100%);
+      position: relative;
+
+      h1 {
+        position: absolute;
+        text-transform: uppercase;
+        font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial,
+          sans-serif;
+        display: block;
+        font-size: 15vw;
+        color: #f1ebe5;
+        text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+        font-weight: bold;
+        letter-spacing: -4px;
+        text-align: center;
+        background: linear-gradient(to bottom, #ece4d9 0%, #e9dfd1 100%);
+        position: absolute;
+        padding: 100px 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+      }
+    }
+
+    .container-08 {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+
+      main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .bg {
+        background-image: url(https://raw.githubusercontent.com/interaminense/repository-codepen/master/neon-codepen/bg-neon.jpg);
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: 1250px;
+        opacity: 0.3;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .wrapper {
+        position: absolute;
+        width: auto;
+        height: 150px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+
+        h1 {
+          font-size: 100px;
+          margin: 0;
+          font-weight: normal;
+        }
+
+        h2 {
+          font-size: 20px;
+          margin: 0;
+          font-weight: normal;
+          line-height: 10px;
+        }
+      }
+    }
+
+    .font1 {
+      font-family: "Monoton", cursive;
+    }
+    .font2 {
+      font-family: "Great Vibes", cursive;
+    }
+
+    .input-text {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 280px;
+      padding: 5px 20px;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.4);
+      font-family: "Monoton", cursive;
+      font-size: 35px;
+      box-shadow: 15px 15px 23px rgba(0, 0, 0, 0.2);
+      outline: none;
+      z-index: 1;
+    }
+
+    .buttons {
+      position: absolute;
+      z-index: 1;
+      right: 20px;
+      top: 20px;
+
+      button {
+        float: left;
+        border: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        margin-right: 10px;
+        padding: 0;
+        cursor: pointer;
+      }
+    }
+
+    button.btn-pink {
+      background-color: #e91e63;
+    }
+    button.btn-yellow {
+      background-color: #ffc107;
+    }
+    button.btn-green {
+      background-color: #8bc34a;
+    }
+    button.btn-blue {
+      background-color: #03a9f4;
+    }
+
+    @mixin content($color, $id) {
+      animation: bgNeon-#{$id} 3s infinite;
+
+      $colorNeon: $color;
+      $colorLightNeon: lighten($colorNeon, 30%);
+      $shadowColor: adjust-hue($colorNeon, -30);
+      $bgNeon: adjust-color($shadowColor, $lightness: -40%);
+
+      .input-text {
+        color: $colorNeon;
+      }
+
+      .wrapper h1 {
+        animation: neon2-#{$id} 3s infinite;
+      }
+
+      .wrapper h2 {
+        text-shadow: 0 0 10px $colorNeon, 0 0 30px $shadowColor;
+        color: $colorNeon;
+      }
+
+      @keyframes neon2-#{$id} {
+        0% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+        80% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+        81% {
+          color: #222;
+          text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82),
+            -2px 0px 4px #29121a;
+        }
+        94% {
+          color: #222;
+          text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82),
+            -2px 0px 4px #29121a;
+        }
+        95% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+        96% {
+          color: #222;
+          text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82),
+            -2px 0px 4px #29121a;
+        }
+        97% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+        98% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+        99% {
+          color: #222;
+          text-shadow: 0 0 10px #000, 1px 1px rgb(99, 74, 82),
+            -2px 0px 4px #29121a;
+        }
+        100% {
+          color: $colorNeon;
+          text-shadow: 0 0 10px $colorNeon, 1px 1px $colorLightNeon,
+            0 0 280px $shadowColor;
+        }
+      }
+
+      @keyframes bgNeon-#{$id} {
+        0% {
+          background-color: $bgNeon;
+        }
+        80% {
+          background-color: $bgNeon;
+        }
+        81% {
+          background-color: #111;
+        }
+        94% {
+          background-color: #111;
+        }
+        95% {
+          background-color: $bgNeon;
+        }
+        96% {
+          background-color: #111;
+        }
+        97% {
+          background-color: $bgNeon;
+        }
+        98% {
+          background-color: $bgNeon;
+        }
+        99% {
+          background-color: #111;
+        }
+        100% {
+          background-color: $bgNeon;
+        }
+      }
+    }
+
+    main.pink {
+      @include content(#e91e63, 1);
+    }
+    main.yellow {
+      @include content(#ffc107, 2);
+    }
+    main.green {
+      @include content(#8bc34a, 3);
+    }
+    main.blue {
+      @include content(#03a9f4, 4);
+    }
+  }
+}
