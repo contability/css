@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  .section-01 {
+    .section-01__button {
+      cursor: pointer;
+      border: 0px;
+      background-color: transparent;
+
+      .arrow-wrapper {
+        padding: 18px;
+        border-radius: 999px;
+        background-color: #d7d7d7;
+        transform: translateX(0);
+        /* 백그라운드 변경됏을 때 애니메이션 트랜지션 */
+        transition: background cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+        display: flex;
+
+        img {
+          /* 초기 상태 숨겨져 있는 애 */
+          &:first-child {
+            position: absolute;
+            /* 왼쪽으로 밀어서 안보이게 해둔 상태 */
+            transform: translate(-100%, 0);
+            /* 애니메이션 트랜지션 */
+            transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+            filter: invert(1);
+            /* 투명하게 해서 안보이게 하는 중 */
+            opacity: 0;
+          }
+
+          /* 초기 상태 보여지는 애 */
+          &:last-child {
+            filter: invert(41%) sepia(0%) saturate(1127%) hue-rotate(182deg)
+              brightness(106%) contrast(87%);
+            /* 애니메이션 트랜지션 */
+            transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+          }
+        }
+      }
+
+      /* 호버 시 땡그란 wrapper 색상 변경 */
+      &:hover .arrow-wrapper {
+        background: #ffffff;
+      }
+
+      /* 호버 시 숨겨져 있다가 원 안쪽으로 들어오면서 투명도 없앰 */
+      &:hover img:first-child {
+        transform: translate(5%, 0);
+        opacity: 1;
+      }
+
+      /* 호버 시 오른쪽으로 밀려나며 사라짐 */
+      &:hover img:last-child {
+        transform: translate(100%, 0);
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+body .section-01 .animate-rolling__roller {
+  margin-top: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .section-01 .animate-rolling__roller .animate-rolling__roller-track {
+  width: 2800px;
+  display: flex;
+  gap: 400px;
+  animation: scroll-animation 50s linear infinite;
+  will-change: transform;
+  white-space: nowrap;
+  list-style: none;
+}
+body .section-01 .animate-rolling__roller .animate-rolling__roller-track .animate-rolling__background-text {
+  margin: 0;
+  font-size: 140px;
+  font-weight: bold;
+  line-height: 182px;
+  float: left;
+  width: 100%;
+  cursor: default;
+  -webkit-text-stroke: 1px #ededed;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body .section-01 .animate-rolling__roller .animate-rolling__roller-track:first-child .animate-rolling__background-text, body .section-01 .animate-rolling__roller .animate-rolling__roller-track:nth-child(4) .animate-rolling__background-text {
+  -webkit-text-fill-color: #ededed;
+}
+body .section-01 .animate-rolling__roller .animate-rolling__roller-track:nth-child(even) {
+  left: -80%;
+  animation: scroll-animation__reverse 50s linear infinite;
+}
+body .section-01 .animate-rolling__roller .mobile-roller {
+  display: none;
+}
+@keyframes scroll-animation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll-animation__reverse {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+/*# sourceMappingURL=rolling.css.map */
