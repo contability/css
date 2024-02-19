@@ -1,0 +1,50 @@
+body {
+  background-color: black;
+  padding: 24px;
+}
+body .collage-accordian {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  height: calc(100dvh - 48px);
+  list-style-type: none;
+}
+body .collage-accordian__item {
+  width: 100%;
+  height: 95%;
+  transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  filter: grayscale(1);
+  cursor: pointer;
+  background-size: cover;
+  background-image: url("https://source.unsplash.com/random");
+  padding: 0;
+}
+body .collage-accordian__item:nth-child(even) {
+  align-self: self-end;
+}
+body .collage-accordian__item:hover {
+  filter: none;
+}
+body .collage-accordian:has(.grid-item-01:hover) {
+  grid-template-columns: 5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+}
+body .collage-accordian:has(.grid-item-02:hover) {
+  grid-template-columns: 0.5fr 5fr 0.5fr 0.5fr 0.5fr;
+}
+body .collage-accordian:has(.grid-item-03:hover) {
+  grid-template-columns: 0.5fr 0.5fr 5fr 0.5fr 0.5fr;
+}
+body .collage-accordian:has(.grid-item-04:hover) {
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 5fr 0.5fr;
+}
+body .collage-accordian:has(.grid-item-05:hover) {
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 5fr;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=accordian.css.map */
