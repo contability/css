@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #000000;
+}
+
+article {
+  background-color: gray;
+
+  section {
+    min-height: 250px;
+  }
+
+  .divider {
+    border-right: 100dvw solid transparent;
+    border-bottom: 13dvw solid red;
+  }
+}
