@@ -68,14 +68,14 @@ body {
       display: flex;
       align-items: center;
       width: fit-content;
-      // overflow hidden 안넣으면 밑줄이 옆으로 이동은 하는데 안숨음
+      // width + overflow hidden 안넣으면 밑줄이 옆으로 이동은 하는데 안숨음
       overflow: hidden;
 
       > .arrow-wrapper {
         position: relative;
         width: 24px;
         height: 24px;
-        // overflow hidden 안넣으면 화살표가 옆으로 이동은 하는데 안숨음
+        // width + overflow hidden 안넣으면 화살표가 옆으로 이동은 하는데 안숨음
         overflow: hidden;
 
         img {
