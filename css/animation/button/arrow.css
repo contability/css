@@ -1,0 +1,101 @@
+@charset "UTF-8";
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+body .section-01 .section-01__button {
+  cursor: pointer;
+  border: 0px;
+  background-color: transparent;
+  /* 호버 시 땡그란 wrapper 색상 변경 */
+  /* 호버 시 숨겨져 있다가 원 안쪽으로 들어오면서 투명도 없앰 */
+  /* 호버 시 오른쪽으로 밀려나며 사라짐 */
+}
+body .section-01 .section-01__button .arrow-wrapper {
+  padding: 18px;
+  border-radius: 999px;
+  background-color: #d7d7d7;
+  transform: translateX(0);
+  /* 백그라운드 변경됏을 때 애니메이션 트랜지션 */
+  transition: background cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+  display: flex;
+}
+body .section-01 .section-01__button .arrow-wrapper img {
+  /* 초기 상태 숨겨져 있는 애 */
+  /* 초기 상태 보여지는 애 */
+}
+body .section-01 .section-01__button .arrow-wrapper img:first-child {
+  position: absolute;
+  /* 왼쪽으로 밀어서 안보이게 해둔 상태 */
+  transform: translate(-100%, 0);
+  /* 애니메이션 트랜지션 */
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+  filter: invert(1);
+  /* 투명하게 해서 안보이게 하는 중 */
+  opacity: 0;
+}
+body .section-01 .section-01__button .arrow-wrapper img:last-child {
+  filter: invert(41%) sepia(0%) saturate(1127%) hue-rotate(182deg) brightness(106%) contrast(87%);
+  /* 애니메이션 트랜지션 */
+  transition: all cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+}
+body .section-01 .section-01__button:hover .arrow-wrapper {
+  background: #ffffff;
+}
+body .section-01 .section-01__button:hover img:first-child {
+  transform: translate(5%, 0);
+  opacity: 1;
+}
+body .section-01 .section-01__button:hover img:last-child {
+  transform: translate(100%, 0);
+  opacity: 0;
+}
+body .section-02__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  overflow: hidden;
+}
+body .section-02__button > .arrow-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+body .section-02__button > .arrow-wrapper img {
+  position: absolute;
+  transition: all 200ms ease-in-out;
+  top: 0;
+  left: 0;
+}
+body .section-02__button > .arrow-wrapper img:first-child {
+  filter: invert(1) opacity(0.5);
+}
+body .section-02__button > .arrow-wrapper img:last-child {
+  filter: invert(1);
+  transform: translateX(-100%);
+}
+body .section-02__button > .section-02__button-underline {
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  bottom: 0;
+  transition: all 200ms ease-in-out;
+  transform: translateX(-100%);
+  background-color: #000000;
+}
+body .section-02__button:hover > .arrow-wrapper img:first-child {
+  transform: translateX(100%);
+}
+body .section-02__button:hover > .arrow-wrapper img:last-child {
+  transform: translateX(0);
+}
+body .section-02__button:hover > .section-02__button-underline {
+  transform: translateX(0);
+}
+
+/*# sourceMappingURL=arrow.css.map */

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>text-animation</title>
+  </head>
+  <link rel="stylesheet" href="../../css/animation/text.css" />
+  <script type="text/javascript" src="../../js/container-08.js"></script>
+  <script type="text/javascript" src="../../js/container-09.js"></script>
+  <script type="text/javascript">
+    // container-08 이벤트
+    /** 색깔 버튼 클릭 이벤트 */
+    function handleClickColorButton(color) {
+      document.getElementById("sec08-main").setAttribute("class", color);
+    }
+
+    /** 텍스트 변경 이벤트 */
+    function handleChangeText() {
+      const value = document.getElementById("sec08-input").value;
+      document.getElementById("userNameRes").innerHTML = value;
+    }
+  </script>
+  <body>
+    <article>
+      <!-- section-01 -->
+      <section class="container-01">
+        <div>
+          <h1>test</h1>
+        </div>
+      </section>
+
+      <!-- section-02 -->
+      <section class="container-02">
+        <h1>
+          <span>t</span>
+          <span>e</span>
+          <span>s</span>
+          <span>t</span>
+          <span>e</span>
+          <span>r</span>
+        </h1>
+      </section>
+
+      <!-- section-03 -->
+      <section class="container-03">
+        <div class="wrapper">
+          <div class="focus">test</div>
+          <div class="mask">
+            <div class="text">test</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- section-04 -->
+      <section class="container-04">
+        <h1 data-shadow="test!">test!</h1>
+      </section>
+
+      <!-- section-05 -->
+      <section class="container-05">
+        <div class="wrapper">
+          <h1 contenteditable data-heading="test">test</h1>
+        </div>
+      </section>
+
+      <!-- section-06 -->
+      <section class="container-06">
+        <h1>test</h1>
+      </section>
+
+      <!-- section-07 -->
+      <section class="container-07">
+        <h1>test</h1>
+      </section>
+
+      <!-- section-08 -->
+      <section class="container-08">
+        <!-- 결국 메인 class에 어떤 값이 들어가느냐에 따라 색이 변함. (pink || yellow || green || blue) -->
+        <main id="sec08-main">
+          <div class="bg"></div>
+          <input
+            id="sec08-input"
+            class="input-text"
+            type="text"
+            name="userName"
+            onchange="handleChangeText()"
+            value="TEST"
+          />
+
+          <div class="buttons">
+            <input type="hidden" id="btn-value" />
+            <button
+              class="btn-pink"
+              onclick="handleClickColorButton('pink')"
+            ></button>
+            <button
+              class="btn-yellow"
+              onclick="handleClickColorButton('yellow')"
+            ></button>
+            <button
+              class="btn-green"
+              onclick="handleClickColorButton('green')"
+            ></button>
+            <button
+              class="btn-blue"
+              onclick="handleClickColorButton('blue')"
+            ></button>
+          </div>
+
+          <div class="wrapper">
+            <h1 class="font1">
+              <span id="userNameRes">TEST</span>
+              <h2 class="font2">neon by @interaminense</h2>
+            </h1>
+          </div>
+        </main>
+      </section>
+
+      <!-- section-09 -->
+      <section class="container-09">
+        <div class="sec09-wrap"></div>
+      </section>
+
+      <!-- section-10 -->
+      <section class="container-10">
+        <div class="shadow">Test</div>
+      </section>
+    </article>
+  </body>
+</html>

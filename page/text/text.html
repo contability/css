@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>text</title>
+  </head>
+  <link rel="stylesheet" href="../../css/text/text.css" />
+  <body>
+    <section class="section-01">
+      <p class="text-stroke">-webkit-text-stroke</p>
+    </section>
+
+    <section class="section-02">
+      <div class="container">
+        <h1>Using Corners Text-Shadow</h1>
+        <div class="main-text text-outline">UnusedCSS</div>
+        <h1>Using Corners and Diagonals Text-Shadow</h1>
+        <div class="main-text text-outline-diagonal">UnusedCSS</div>
+        <h1>Using Text Stroke</h1>
+        <div class="main-text text-outline-stroke">UnusedCSS</div>
+        <h1>Using SVG Filter (Black Outline Only)</h1>
+        <div class="main-text text-outline-svg-black">UnusedCSS</div>
+        <h1>Using SVG Filter (All Colors Supported)</h1>
+        <div class="main-text text-outline-svg-colored">UnusedCSS</div>
+      </div>
+
+      <!--- SVG Filter for outline of only black color -->
+
+      <!-- <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="outlineBlack">
+          <feMorphology
+            in="SourceAlpha"
+            result="dilatedAlpha"
+            operator="dilate"
+            radius="2"
+          ></feMorphology>
+          <feMerge>
+            <feMergeNode in="dilatedAlpha" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </svg> -->
+
+      <!--- SVG Filter for outline of any color -->
+
+      <!-- <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="step1">
+          <feMorphology
+            in="SourceAlpha"
+            result="Dilated"
+            operator="dilate"
+            radius="5"
+          ></feMorphology>
+        </filter>
+      </svg> -->
+
+      <!-- <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="step2">
+          <feMorphology
+            in="SourceAlpha"
+            result="Dilated"
+            operator="dilate"
+            radius="5"
+          ></feMorphology>
+          <feFlood flood-color="#FF0000" result="OutlineColor"></feFlood>
+        </filter>
+      </svg> -->
+
+      <!-- <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="step3">
+          <feMorphology
+            in="SourceAlpha"
+            result="Dilated"
+            operator="dilate"
+            radius="5"
+          ></feMorphology>
+          <feFlood flood-color="#FF0000" result="OutlineColor"></feFlood>
+          <feComposite
+            in="OutlineColor"
+            in2="Dilated"
+            operator="in"
+            result="Outline"
+          ></feComposite>
+        </filter>
+      </svg> -->
+
+      <!-- Complete Working Filter -->
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="outlineColored">
+          <feMorphology
+            in="SourceAlpha"
+            result="Dilated"
+            operator="dilate"
+            radius="3"
+          ></feMorphology>
+          <feFlood flood-color="#8E44AD" result="OutlineColor"></feFlood>
+          <feComposite
+            in="OutlineColor"
+            in2="Dilated"
+            operator="in"
+            result="Outline"
+          ></feComposite>
+          <feMerge>
+            <feMergeNode in="Outline" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </svg>
+    </section>
+
+    <section class="section-03">
+      <div class="styled stroked">Hello stroke!</div>
+    </section>
+
+    <section class="section-04">
+      <div class="star-wrapper">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+
+      <div class="cross-wrapper">
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+        <div class="cross"></div>
+      </div>
+      <div class="title" data-text="hello"></div>
+    </section>
+
+    <section class="section-05">
+      <div class="wrapper">
+        <div class="title">
+          Must be something comforting about the number three, people always
+          give up after three.
+        </div>
+        <div class="note">Sherlock Holmes | S4.Ep2: The Lying Detective</div>
+      </div>
+    </section>
+
+    <section class="section-06">
+      <div class="container">
+        <div class="mill">
+          <div class="left-part">
+            <div class="shovels">
+              <div class="x">X</div>
+            </div>
+            <div class="small-door"></div>
+          </div>
+          <div class="right-part">
+            <div class="big-door">
+              <div class="line1"></div>
+              <div class="line2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
