@@ -1,0 +1,308 @@
+@use "sass:color";
+
+$face: #ffff4c;
+$outline: #3d3d3d;
+$star: #ffdb19;
+
+$outline-size: 6px;
+
+// Layout
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+}
+#form {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  height: 100%;
+  margin: auto;
+}
+
+// Icon Font
+[class*="fontawesome-"]:before {
+  font-family: "FontAwesome", sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+// Reset Filter
+.reset {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin: auto;
+  padding: 12px 24px;
+  color: $outline;
+  background: color.scale($outline, $lightness: 70%);
+  border: 4px solid $outline;
+  border-radius: 60px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: rgba(white, 0.8) 1px 1px 0;
+  cursor: pointer;
+  box-shadow: inset rgba(black, 0.06) 0 -15px 0;
+  outline: none;
+  transform: translateX(-50%);
+  &:hover {
+    background: $face;
+  }
+}
+
+// Inputs + Labels
+input,
+label {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.stars {
+  position: relative;
+
+  input {
+    display: none;
+    &:checked ~ label:not(.reset) {
+      animation: wobble 0.8s ease-out;
+      color: $star;
+    }
+    &:checked:not(#star-reset) ~ label.reset {
+      display: block;
+    }
+  }
+  label:not(.reset) {
+    display: inline-block;
+    float: right;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    padding: 2px;
+    cursor: pointer;
+    color: $outline;
+    transition: color 0.1s ease-out;
+    z-index: 10;
+  }
+}
+
+// Face
+.face {
+  position: relative;
+  width: 200px;
+  background: white;
+  border: $outline-size solid color.scale($outline, $lightness: 70%);
+  border-radius: 100%;
+  margin: 80px 0 50px;
+  transition: box-shadow 0.4s ease-out;
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+
+// Eyes
+i {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: color.scale($outline, $lightness: 70%);
+  &:nth-child(1) {
+    left: 30%;
+  }
+  &:nth-child(2) {
+    right: 30%;
+  }
+}
+
+// Smile
+u {
+  position: absolute;
+  right: 0;
+  bottom: 25%;
+  left: 0;
+  margin: auto;
+  width: 36px;
+  height: 36px;
+  text-decoration: none;
+  border: $outline-size solid color.scale($outline, $lightness: 70%);
+  border-radius: 100%;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    width: $outline-size;
+    height: $outline-size;
+    background: color.scale($outline, $lightness: 70%);
+    border-radius: 60px 60px 0 0;
+    z-index: 2;
+  }
+  &:before {
+    left: -$outline-size + 1;
+    transform: rotate(-32deg);
+  }
+  &:after {
+    right: -$outline-size + 1;
+    transform: rotate(32deg);
+  }
+  .cover {
+    position: absolute;
+    top: -$outline-size;
+    left: -$outline-size;
+    width: 36px;
+    height: 36px;
+    border: $outline-size solid white;
+    background: white;
+    transform: translate(0, -12px);
+  }
+}
+
+// Facial Expressions
+input#star4:checked,
+input#star2:checked {
+  ~ .face {
+    u {
+      width: 36px;
+      &:before,
+      &:after {
+        top: 18px;
+        height: 12px;
+      }
+      &:before {
+        left: 0px;
+        transform: rotate(-66deg);
+      }
+      &:after {
+        right: 0px;
+        transform: rotate(66deg);
+      }
+      .cover {
+        transform: translate(0, -8px);
+      }
+    }
+  }
+}
+input#star5:checked,
+input#star4:checked {
+  ~ .face {
+    u {
+      transform: rotate(180deg) translateY(-20px);
+    }
+  }
+}
+input#star3:checked {
+  ~ .face {
+    u {
+      width: 42px;
+      height: $outline-size;
+      background: $outline;
+      border: none;
+      border-radius: 60px;
+      transform: translateY(-4px);
+      &:before,
+      &:after,
+      .cover {
+        display: none;
+      }
+    }
+  }
+}
+
+// Face Color Changes
+input:not(#star-reset):checked {
+  ~ .face {
+    animation: wobble 0.8s ease-out;
+  }
+  ~ .face,
+  ~ .face u {
+    border-color: $outline;
+  }
+  ~ .face i,
+  ~ .face u:before,
+  ~ .face u:after {
+    background: $outline;
+  }
+}
+input#star5:checked ~ .face {
+  background-color: color.scale($face, $lightness: 40%);
+  box-shadow: inset rgba(white, 0.5) 2px 2px 0 4px,
+    inset rgba(black, 0.06) -6px -4px 0 4px;
+  u .cover {
+    background: color.scale($face, $lightness: 40%);
+    border-color: color.scale($face, $lightness: 40%);
+  }
+}
+input#star4:checked ~ .face {
+  background-color: color.scale($face, $lightness: 30%);
+  box-shadow: inset rgba(white, 0.5) 2px 2px 0 4px,
+    inset rgba(black, 0.06) -6px -4px 0 4px, rgba($face, 0.05) 0 0 0 20px;
+  u .cover {
+    background: color.scale($face, $lightness: 30%);
+    border-color: color.scale($face, $lightness: 30%);
+  }
+}
+input#star3:checked ~ .face {
+  background-color: color.scale($face, $lightness: 20%);
+  box-shadow: inset rgba(white, 0.5) 2px 2px 0 4px,
+    inset rgba(black, 0.06) -6px -4px 0 4px, rgba($face, 0.3) 0 0 0 15px,
+    rgba($face, 0.1) 0 0 0 30px;
+}
+input#star2:checked ~ .face {
+  background-color: color.scale($face, $lightness: 10%);
+  box-shadow: inset rgba(white, 0.5) 2px 2px 0 4px,
+    inset rgba(black, 0.06) -6px -4px 0 4px, rgba($face, 0.4) 0 0 0 20px,
+    rgba($face, 0.2) 0 0 0 40px;
+  u .cover {
+    background: color.scale($face, $lightness: 10%);
+    border-color: color.scale($face, $lightness: 10%);
+  }
+}
+input#star1:checked ~ .face {
+  background-color: $face;
+  box-shadow: inset rgba(white, 0.5) 2px 2px 0 4px,
+    inset rgba(black, 0.06) -6px -4px 0 4px, rgba($face, 0.4) 0 0 0 25px,
+    rgba($face, 0.2) 0 0 0 50px;
+  u .cover {
+    background: $face;
+    border-color: $face;
+  }
+}
+
+// Star -- Animation
+@keyframes wobble {
+  0% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>rating-start-version14</title>
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../../../../../css/global.css" />
+  <link
+    rel="stylesheet"
+    href="../../../../css/animation/rating/star/version14.css"
+  />
+  <body>
+    <body>
+      <form id="form">
+        <fieldset class="stars">
+          <input type="radio" name="stars" id="star1" ontouchstart />
+          <label for="star1" class="fa fa-star"></label>
+          <input type="radio" name="stars" id="star2" ontouchstart />
+          <label for="star2" class="fa fa-star"></label>
+          <input type="radio" name="stars" id="star3" ontouchstart />
+          <label for="star3" class="fa fa-star"></label>
+          <input type="radio" name="stars" id="star4" ontouchstart />
+          <label for="star4" class="fa fa-star"></label>
+          <input type="radio" name="stars" id="star5" ontouchstart />
+          <label for="star5" class="fa fa-star"></label>
+          <input type="radio" name="stars" id="star-reset" />
+          <label for="star-reset" class="reset">reset</label>
+          <figure class="face">
+            <i></i>
+            <i></i>
+            <u>
+              <div class="cover"></div>
+            </u>
+          </figure>
+        </fieldset>
+      </form>
+    </body>
+    <!-- 
+    form#form
+  fieldset.stars
+    - for (var x = 1; x <= 5; x++)
+      input(type="radio" name="stars" id="star" + x ontouchstart)
+      label(for="star" + x class="fa fa-star")
+    input(type="radio" name="stars" id="star-reset")
+    label(for="star-reset" class="reset") reset
+    figure.face
+      i
+      i
+      u
+       .cover 
+       -->
+  </body>
+</html>
