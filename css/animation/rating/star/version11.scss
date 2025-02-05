@@ -1,0 +1,81 @@
+// @import "compass";
+
+body {
+  background: #333;
+}
+
+.rating {
+  width: 265px;
+  margin: 200px auto 0;
+  position: relative;
+  direction: rtl;
+  display: flex;
+
+  .emo {
+    position: absolute;
+    font-family: FontAwesome;
+    color: #fff;
+    font-size: 100px;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    &:after {
+      content: "\f119";
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    cursor: pointer;
+    transform: translateX(52px);
+    opacity: 0;
+    z-index: 5;
+
+    &:nth-of-type(4),
+    &:nth-of-type(3) {
+      &:checked ~ .emo:after,
+      &:hover ~ .emo:after {
+        content: "\f11a";
+      }
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      &:checked ~ .emo:after,
+      &:hover ~ .emo:after {
+        content: "\f118";
+      }
+    }
+
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        right: #{$i * 50px};
+      }
+    }
+    &:checked ~ .star:after,
+    &:hover ~ .star:after {
+      content: "\f005";
+    }
+  }
+  .star {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 42px;
+    color: #fbb202;
+    cursor: pointer;
+    margin: 3px;
+    &:after {
+      content: "\f006";
+    }
+
+    &:hover {
+      & ~ .star:after,
+      &:after {
+        content: "\f005";
+      }
+    }
+  }
+}
