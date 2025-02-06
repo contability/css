@@ -1,0 +1,110 @@
+.noise {
+  display: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  font-family: "Montserrat", sans-serif;
+
+  background-color: #5eb0e5;
+  background-image: linear-gradient(90deg, #aeeff030 35%, #0000 0);
+}
+header {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  &:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    inset: 0;
+    background-image: linear-gradient(
+      90deg,
+      #04345810 -29%,
+      #0000 10% 34.7%,
+      #04345820 34.8%,
+      #eee1 43% 44.8%,
+      #aeeff030 44.9%,
+      #0000 50% 54.9%,
+      #04345820 55%,
+      #0000 73%
+    );
+    /*background-image:
+      linear-gradient(
+        90deg,
+        #04345840 34.8%,
+        #0005 0 44.9%,
+        #04345840 0 55%,
+        #0005 0
+      );
+      */
+    filter: url(#grainy);
+  }
+}
+@keyframes text-mv {
+  to {
+    text-indent: -5ch;
+  }
+}
+h1 {
+  text-align: center;
+  color: #0000;
+  position: relative;
+  font-size: 6vw;
+  > span:before,
+  > span:after {
+    position: absolute;
+    inset: 0;
+    content: attr(data-val);
+    color: #f9f6ef;
+    text-shadow: 0.1em 0.01em 0.1em color-mix(in lab, currentcolor, #0005 80%);
+    animation: text-mv linear 10s infinite alternate;
+  }
+  .a:before {
+    //color: red;
+    /*
+    mask-image:
+      linear-gradient(
+        90deg,
+        #000 0 20%,
+        #0000 20%
+      );
+    */
+    clip-path: inset(-100% 80% -100% -100%);
+    transform: translatey(0.22lh) translatex(-1px) rotatey(-45deg) rotatez(4deg)
+      skew(3deg, 3deg);
+  }
+  .a:after {
+    //color: green;
+    mask-image: linear-gradient(90deg, #0000 0 20%, #000 20% 40%, #0000 0);
+    transform: translatey(-0.45lh) rotatey(45deg) rotatez(-1deg)
+      translatex(-1px) skew(-2deg, -5deg);
+  }
+
+  .b:before {
+    //color: orange;
+    mask-image: linear-gradient(90deg, #0000 0 40%, #000 40% 60%, #0000 0);
+
+    transform: translatey(-0.225lh) translatex(-1px) rotatey(-45deg)
+      rotatez(4deg) skew(3deg, 3deg);
+  }
+  .b:after {
+    //color: red;
+    /*mask-image:
+      linear-gradient(
+        90deg,
+        #0000 0 60%,
+        #000 0
+      );
+    */
+    clip-path: inset(-100% -100% -100% 60%);
+    transform:
+      //translatey(.01lh)
+      rotatey(45deg) rotatez(-1deg) translatex(-2.5px) skew(-2deg, -5deg);
+  }
+}
