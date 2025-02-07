@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+.demo {
+  --stripe-step: 0.75vmax;
+  --stripe-tiny-step: 0.5vmax;
+  --stripe-offset: calc(var(--stripe-step) * 0.7);
+  --stripe-offset-neg: calc(var(--stripe-offset) * -1);
+  --delay: 2.5s;
+  --duration: calc(var(--delay) * 3);
+  position: relative;
+  width: 100%;
+  height: 1em;
+  font-family: "Fredoka One", cursive;
+  line-height: 1;
+  text-align: center;
+}
+.demo__text, .demo::before, .demo::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  mask-image: repeating-linear-gradient(-45deg, black 0, black var(--stripe-step), transparent 0, transparent calc(var(--stripe-step) * 3));
+  mask-position: 0 0;
+  mask-size: 120% 120%;
+  animation: mask-move var(--duration) ease-out infinite;
+}
+.demo__text {
+  left: 0;
+  top: 0;
+  color: gold;
+}
+.demo::before, .demo::after {
+  content: attr(data-text);
+}
+.demo::before {
+  left: var(--stripe-offset);
+  bottom: var(--stripe-offset);
+  mask-position: var(--stripe-offset) var(--stripe-offset);
+  animation-delay: calc(var(--delay) * -1);
+  color: tomato;
+}
+.demo::after {
+  left: var(--stripe-offset-neg);
+  bottom: var(--stripe-offset-neg);
+  mask-position: var(--stripe-offset-neg) var(--stripe-offset-neg);
+  animation-delay: calc(var(--delay) * -2);
+  color: turquoise;
+}
+
+@keyframes mask-move {
+  0% {
+    mask-position: 0 0;
+  }
+  33% {
+    mask-position: var(--stripe-offset) var(--stripe-offset);
+  }
+  66% {
+    mask-position: var(--stripe-offset-neg) var(--stripe-offset-neg);
+  }
+  100% {
+    mask-position: 0 0;
+  }
+}
+BODY {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(40px, 25vw, 250px);
+}
+
+/*# sourceMappingURL=version15.css.map */
