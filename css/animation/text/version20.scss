@@ -1,0 +1,218 @@
+$color-dark: #263238;
+$color-dark--highlight: #455a64;
+$color-dark--shadow: #1a2327;
+
+$color-light: #cfd8dc;
+$color-light--highlight: #eceff1;
+$color-light--shadow: #b0bec5;
+
+$color-gold: #e8a95b;
+$color-gold--highlight: #f0bb7a;
+$color-gold--shadow: #de9945;
+
+$background-gradient: radial-gradient(
+  ellipse farthest-side at 40% 0%,
+  $color-dark--highlight 0%,
+  $color-dark 60%,
+  $color-dark--shadow 100%
+);
+
+$gold-gradient: radial-gradient(
+    ellipse farthest-corner at right bottom,
+    white 0%,
+    $color-gold--highlight 20%,
+    $color-gold 60%,
+    transparent 80%
+  ),
+  radial-gradient(
+    ellipse farthest-corner at left top,
+    white 0%,
+    $color-gold--highlight 50%,
+    $color-gold--shadow 75%,
+    $color-gold 100%
+  );
+
+$shine-gradient: linear-gradient(
+  100deg,
+  transparent 0%,
+  transparent 6rem,
+  white 11rem,
+  transparent 11.15rem,
+  transparent 15rem,
+  rgba(white, 0.3) 20rem,
+  transparent 25rem,
+  transparent 27rem,
+  rgba(white, 0.6) 32rem,
+  white 33rem,
+  rgba(white, 0.3) 33.15rem,
+  transparent 38rem,
+  transparent 40rem,
+  rgba(white, 0.3) 45rem,
+  transparent 50rem,
+  transparent 100%
+);
+
+$flash-gradient: linear-gradient(
+  to bottom,
+  rgba(white, 0.5) 0%,
+  transparent 35%,
+  transparent 75%,
+  $color-gold--shadow 100%
+);
+
+$decoration-gradient: radial-gradient(
+  ellipse at top left,
+  $color-light 0%,
+  rgba($color-dark--highlight, 0.75) 75%,
+  transparent 100%
+);
+
+@keyframes shine {
+  0% {
+    background-position: -50rem 0;
+  }
+  25% {
+    background-position: -50rem 0;
+  }
+  100% {
+    background-position: 30rem 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+html {
+  font-size: 150%;
+}
+
+body {
+  height: 100vh;
+  min-height: 16rem;
+  width: 100vw;
+  padding: 2rem;
+  overflow: hidden;
+  background-image: $background-gradient;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
+.gold-text {
+  font-family: "Alegreya", serif;
+  font-style: italic;
+  font-size: 4rem;
+  word-spacing: 0.2em;
+  display: inline-block;
+  padding: 0;
+  line-height: 1;
+  white-space: nowrap;
+  color: transparent;
+  background-color: $color-gold;
+  background-image: $gold-gradient;
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0 0 0.5rem 0;
+  &:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $color-gold;
+    z-index: -1;
+    text-shadow: 0 -1px 0 mix($color-gold--highlight, white, 75%),
+      0 1px 0 mix($color-gold--shadow, black, 75%),
+      0 2px 0 mix($color-gold--shadow, black, 70%),
+      0 3px 0 mix($color-gold--shadow, black, 65%),
+      0 4px 0 mix($color-gold--shadow, black, 55%),
+      0 4px 2px mix($color-gold--shadow, black, 55%),
+      0 0.075em 0.1em rgba($color-dark--shadow, 0.3),
+      0 0.15em 0.3em rgba($color-gold--shadow, 0.2);
+  }
+  &__highlight {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    &:after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background-image: $shine-gradient;
+      background-clip: text;
+      background-size: 60rem 100%;
+      background-repeat: no-repeat;
+      -webkit-background-clip: text;
+      animation-name: shine;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-duration: 4s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      color: transparent;
+      background-image: $flash-gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation-name: flash;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-duration: 4s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+.decoration-text {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: transparent;
+  background-image: $decoration-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
