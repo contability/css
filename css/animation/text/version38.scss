@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+$speed: 20s;
+html,
+body {
+  font-size: 32px;
+}
+
+body {
+  font-family: "Courgette", cursive;
+  background-color: #000;
+  background-image: radial-gradient(circle, #012, #000 15em);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 75em;
+  perspective-origin: 50% calc(50% - 5em);
+  transform-style: preserve-3d;
+}
+
+.platform {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: platform $speed * 0.4 infinite ease-in-out;
+
+  @keyframes platform {
+    0%,
+    100% {
+      transform: translateY(-0.5em);
+    }
+    50% {
+      transform: translateY(0.5em);
+    }
+  }
+}
+
+.plate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+
+  &:nth-child(1) {
+    width: 16em;
+    height: 16em;
+    background-image: radial-gradient(#444, #111);
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(2em);
+  }
+  &:nth-child(2) {
+    width: 14em;
+    height: 14em;
+    background-image: radial-gradient(#000, #222);
+    transform: translate(-50%, -50%) rotateX(90deg) translateZ(-2em);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 0.5em;
+    background-image: linear-gradient(90deg, #222, #333, #111, #222);
+    transform: translateX(-50%) rotateX(-90deg) translateZ(0.5em);
+    transform-origin: top;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #222, #333, #111, #222);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) translateZ(-0.5em);
+  }
+}
+
+.panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  clip-path: polygon(0 0, 100% 0, 93.25% 100%, 6.75% 100%);
+  background-color: #0005;
+  overflow: hidden;
+  animation: panalRotate $speed * 3 infinite linear;
+
+  @keyframes panalRotate {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.1;
+    }
+
+    from {
+      transform: translate(-50%, calc(-50% + 0.25em)) rotateY(0) translateZ(7em)
+        rotateX(-15deg);
+    }
+    to {
+      transform: translate(-50%, calc(-50% + 0.25em)) rotateY(360deg)
+        translateZ(7em) rotateX(-15deg);
+    }
+  }
+
+  $count: 16;
+  @for $i from 0 to $count {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: #{$speed / $count * $i * -3};
+
+      &::after {
+        animation-delay: #{$speed / $count * $i * -1};
+      }
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "I'm a slow walker but I never walk backwards";
+    font-weight: 700;
+    font-size: 2em;
+    white-space: nowrap;
+    color: #0009;
+    text-shadow: 0 0 5px #0af, 0 0 15px #0af, 0 0 30px #0af;
+    animation: textMove $speed infinite linear;
+  }
+
+  @keyframes textMove {
+    from {
+      transform: translate(2rem, -50%);
+    }
+    to {
+      transform: translate(-42.64rem, -50%);
+    }
+  }
+}
