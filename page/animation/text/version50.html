@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>text-animation-version50</title>
+  </head>
+  <link rel="stylesheet" href="../../../../../css/global.css" />
+  <link rel="stylesheet" href="../../../css/animation/text/version50.css" />
+  <body>
+    <!-- 
+    h1(style='--x: 6; --y: -6;')
+  for letter, index in 'Waaave'.split('')
+    span(style=`--index: ${index}; --alpha-l: 0.125; --alpha-u: 0.25;`)= letter
+h1(style='--x: 3; --y: -3;')
+  for letter, index in 'Waaave'.split('')
+    span(style=`--index: ${index}; --alpha-l: 0.25; --alpha-u: 0.5;`)= letter
+h1
+  for letter, index in 'Waaave'.split('')
+    span(style=`--index: ${index}; --alpha-l: 0.5; --alpha-u: 1;`)= letter
+
+    -->
+
+    <h1 style="--x: 6; --y: -6">
+      <span style="--index: 0; --alpha-l: 0.125; --alpha-u: 0.25">W</span>
+      <span style="--index: 1; --alpha-l: 0.125; --alpha-u: 0.25">a</span>
+      <span style="--index: 2; --alpha-l: 0.125; --alpha-u: 0.25">a</span>
+      <span style="--index: 3; --alpha-l: 0.125; --alpha-u: 0.25">a</span>
+      <span style="--index: 4; --alpha-l: 0.125; --alpha-u: 0.25">v</span>
+      <span style="--index: 5; --alpha-l: 0.125; --alpha-u: 0.25">e</span>
+    </h1>
+    <h1 style="--x: 3; --y: -3">
+      <span style="--index: 0; --alpha-l: 0.25; --alpha-u: 0.5">W</span>
+      <span style="--index: 1; --alpha-l: 0.25; --alpha-u: 0.5">a</span>
+      <span style="--index: 2; --alpha-l: 0.25; --alpha-u: 0.5">a</span>
+      <span style="--index: 3; --alpha-l: 0.25; --alpha-u: 0.5">a</span>
+      <span style="--index: 4; --alpha-l: 0.25; --alpha-u: 0.5">v</span>
+      <span style="--index: 5; --alpha-l: 0.25; --alpha-u: 0.5">e</span>
+    </h1>
+    <h1>
+      <span style="--index: 0; --alpha-l: 0.5; --alpha-u: 1">W</span>
+      <span style="--index: 1; --alpha-l: 0.5; --alpha-u: 1">a</span>
+      <span style="--index: 2; --alpha-l: 0.5; --alpha-u: 1">a</span>
+      <span style="--index: 3; --alpha-l: 0.5; --alpha-u: 1">a</span>
+      <span style="--index: 4; --alpha-l: 0.5; --alpha-u: 1">v</span>
+      <span style="--index: 5; --alpha-l: 0.5; --alpha-u: 1">e</span>
+    </h1>
+  </body>
+</html>
