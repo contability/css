@@ -1,0 +1,55 @@
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+$h: 0.125em;
+$a: 2deg;
+$f: 1 / cos($a);
+
+body {
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  background: url(https://images.unsplash.com/photo-1484313544071-4d67c88b99be?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ)
+    50% / cover;
+}
+
+h1 {
+  display: flex;
+  position: relative;
+  padding: 0 0.5 * $h;
+  transform-style: preserve-3d;
+  font: 900 10vw chilanka, segoe script, purisa, comic sans ms, cursive;
+
+  &::after {
+    position: absolute;
+    top: calc(50% - 0.5 *#{$h});
+    right: 0;
+    width: calc(50% + 50vw);
+    height: $h;
+    border-radius: 0 $h $h 0;
+    background: crimson;
+    animation: slide 2s ease-out;
+    content: "";
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-100%);
+  }
+}
+
+.letter {
+  overflow: visible;
+  white-space: pre;
+  @include transform(rotatey($a) scalex($f));
+}
+
+.rev {
+  @include transform(rotatey(-$a) scalex($f));
+}

@@ -1,0 +1,48 @@
+body {
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  background: url(https://images.unsplash.com/photo-1484313544071-4d67c88b99be?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50%/cover;
+}
+
+h1 {
+  display: flex;
+  position: relative;
+  padding: 0 0.0625em;
+  transform-style: preserve-3d;
+  font: 900 10vw chilanka, segoe script, purisa, comic sans ms, cursive;
+}
+h1::after {
+  position: absolute;
+  top: calc(50% - 0.5 * 0.125em);
+  right: 0;
+  width: calc(50% + 50vw);
+  height: 0.125em;
+  border-radius: 0 0.125em 0.125em 0;
+  background: crimson;
+  animation: slide 2s ease-out;
+  content: "";
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(-100%);
+  }
+}
+.letter {
+  overflow: visible;
+  white-space: pre;
+  -webkit-transform: rotatey(2deg) scalex(1.0006095443);
+  -ms-transform: rotatey(2deg) scalex(1.0006095443);
+  transform: rotatey(2deg) scalex(1.0006095443);
+}
+
+.rev {
+  -webkit-transform: rotatey(-2deg) scalex(1.0006095443);
+  -ms-transform: rotatey(-2deg) scalex(1.0006095443);
+  transform: rotatey(-2deg) scalex(1.0006095443);
+}
+
+/*# sourceMappingURL=version60.css.map */
