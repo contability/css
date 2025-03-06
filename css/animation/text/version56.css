@@ -1,0 +1,126 @@
+body {
+  font-family: Arial;
+  font-size: 1.5rem;
+  line-height: 150%;
+  background: #edf2f7;
+  color: #2d3748;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.container h1 {
+  font-size: 2.2rem;
+}
+.container .instruction {
+  font-size: 1.8rem;
+  margin-bottom: 4rem;
+  font-style: italic;
+}
+
+.content {
+  margin-bottom: 4em;
+}
+.content p {
+  display: inline;
+  background-repeat: no-repeat;
+  transition: all 500ms ease-in-out;
+}
+
+/* UNDERLINE-------------------------------- */
+.v1 p {
+  background-position: bottom left;
+  background-size: 0% 5px;
+  background-image: linear-gradient(#e53e3e, #e53e3e);
+  padding-bottom: 5px;
+}
+.v1:hover p {
+  background-size: 100% 5px;
+}
+
+/* HIGHLIGHT -------------------------------- */
+.v2 p {
+  background-position: left;
+  background-size: 0% 100%;
+  background-image: linear-gradient(#f6e05e, #f6e05e);
+}
+.v2:hover p {
+  background-size: 100% 100%;
+}
+
+/* SPOILERS ------------------------------------------ */
+.v3 p {
+  color: transparent;
+  background-position: right;
+  background-size: 100% 100%;
+  background-image: linear-gradient(#a0aec0, #a0aec0);
+}
+.v3:hover p {
+  color: black;
+  background-size: 0% 100%;
+}
+
+/* DASHES ------------------------------------- */
+.v4 p {
+  background-position: bottom left;
+  background-size: 0% 3px;
+  background-image: repeating-linear-gradient(to right, #4834d4 0 3px, transparent 0 6px);
+  padding-bottom: 3px;
+}
+.v4:hover p {
+  background-size: 100% 3px;
+}
+
+/* DELETED v1------------------------------------- */
+.v5 p {
+  background-position: center left;
+  background-size: 100% 3px;
+  background-image: linear-gradient(to right, black, black);
+  padding-bottom: 3px;
+}
+.v5:hover p {
+  background-size: 100% 100%;
+  color: white;
+  background-image: linear-gradient(to right, #e53e3e, #e53e3e);
+}
+
+/* DELETED v2------------------------------------- */
+.v6 p {
+  background-position: center left;
+  background-size: 100% 4px;
+  background-image: linear-gradient(to right, black, black);
+  padding-bottom: 4px;
+}
+.v6:hover p {
+  background-position: bottom left;
+  background-size: 100% 2px;
+  font-style: italic;
+}
+
+/* CRAZY ------------------------------------- */
+.v7 p {
+  background-position: left;
+  background-size: 0% 100%;
+  background-image: linear-gradient(to right, #f6e05e, #f6e05e);
+}
+.v7:hover p {
+  background-position: right;
+  background-size: 100% 100%;
+}
+
+/* SWIPE ------------------------------------- */
+.v8 p {
+  background-position: left;
+  background-size: 0% 100%;
+  background-image: linear-gradient(to right, #9ae6b4, #f6e05e);
+  padding-bottom: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.v8:hover p {
+  background-size: 100% 100%;
+}
+
+/*# sourceMappingURL=version56.css.map */

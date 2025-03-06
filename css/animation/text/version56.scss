@@ -1,0 +1,186 @@
+$yellow: #f6e05e;
+$red: #e53e3e;
+$grey: #a0aec0;
+$purple: #4834d4;
+
+body {
+  font-family: Arial;
+  font-size: 1.5rem;
+  line-height: 150%;
+  background: #edf2f7;
+  color: #2d3748;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .instruction {
+    font-size: 1.8rem;
+    margin-bottom: 4rem;
+    font-style: italic;
+  }
+}
+
+.content {
+  margin-bottom: 4em;
+
+  p {
+    display: inline;
+    background-repeat: no-repeat;
+    transition: all 500ms ease-in-out;
+  }
+}
+
+/* UNDERLINE-------------------------------- */
+.v1 {
+  $thickness: 5px;
+
+  p {
+    background-position: bottom left;
+    background-size: 0% $thickness;
+    background-image: linear-gradient($red, $red);
+    padding-bottom: $thickness;
+  }
+
+  &:hover {
+    p {
+      background-size: 100% $thickness;
+    }
+  }
+}
+
+/* HIGHLIGHT -------------------------------- */
+.v2 {
+  p {
+    background-position: left;
+    background-size: 0% 100%;
+    background-image: linear-gradient($yellow, $yellow);
+  }
+
+  &:hover {
+    p {
+      background-size: 100% 100%;
+    }
+  }
+}
+
+/* SPOILERS ------------------------------------------ */
+.v3 {
+  p {
+    color: transparent;
+    background-position: right;
+    background-size: 100% 100%;
+    background-image: linear-gradient($grey, $grey);
+  }
+
+  &:hover {
+    p {
+      color: black;
+      background-size: 0% 100%;
+    }
+  }
+}
+
+/* DASHES ------------------------------------- */
+.v4 {
+  $thickness: 3px;
+
+  p {
+    background-position: bottom left;
+    background-size: 0% $thickness;
+    background-image: repeating-linear-gradient(
+      to right,
+      $purple 0 $thickness,
+      transparent 0 (2 * $thickness)
+    );
+    padding-bottom: $thickness;
+  }
+
+  &:hover {
+    p {
+      background-size: 100% $thickness;
+    }
+  }
+}
+
+/* DELETED v1------------------------------------- */
+.v5 {
+  $thickness: 3px;
+
+  p {
+    background-position: center left;
+    background-size: 100% $thickness;
+    background-image: linear-gradient(to right, black, black);
+    padding-bottom: $thickness;
+  }
+
+  &:hover {
+    p {
+      background-size: 100% 100%;
+      color: white;
+      background-image: linear-gradient(to right, $red, $red);
+    }
+  }
+}
+
+/* DELETED v2------------------------------------- */
+.v6 {
+  $thickness: 4px;
+
+  p {
+    background-position: center left;
+    background-size: 100% $thickness;
+    background-image: linear-gradient(to right, black, black);
+    padding-bottom: $thickness;
+  }
+
+  &:hover {
+    p {
+      background-position: bottom left;
+      background-size: 100% calc($thickness / 2);
+      font-style: italic;
+    }
+  }
+}
+
+/* CRAZY ------------------------------------- */
+.v7 {
+  p {
+    background-position: left;
+    background-size: 0% 100%;
+    background-image: linear-gradient(to right, $yellow, $yellow);
+  }
+
+  &:hover {
+    p {
+      background-position: right;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+/* SWIPE ------------------------------------- */
+.v8 {
+  $thickness: 4px;
+
+  p {
+    background-position: left;
+    background-size: 0% 100%;
+    background-image: linear-gradient(to right, #9ae6b4, $yellow);
+    padding-bottom: $thickness;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  &:hover {
+    p {
+      background-size: 100% 100%;
+    }
+  }
+}
