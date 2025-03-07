@@ -45,7 +45,8 @@ section {
   }
 }
 @keyframes load02 {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0.9);
     opacity: 0.7;
   }
