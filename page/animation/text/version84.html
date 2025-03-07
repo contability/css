@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>text-animation-version84</title>
+  </head>
+  <link rel="stylesheet" href="../../../../../css/global.css" />
+  <link rel="stylesheet" href="../../../css/animation/text/version84.css" />
+  <body>
+    <!-- svg(viewBox="0 0 600 300")
+  // Symbol
+  symbol#s-text
+    text(text-anchor="middle", x="50%", y="50%", dy=".35em")
+      | Interstellar
+  // Duplicate symbols
+  use.text(xlink:href="#s-text")
+  use.text(xlink:href="#s-text")
+  use.text(xlink:href="#s-text")
+  use.text(xlink:href="#s-text")
+  use.text(xlink:href="#s-text") -->
+    <svg viewBox="0 0 600 300">
+      <!-- Symbol -->
+      <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="50%" dy=".35em">
+          Interstellar
+        </text>
+      </symbol>
+      <!-- Duplicate symbols -->
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+    </svg>
+  </body>
+</html>
