@@ -1,0 +1,288 @@
+body {
+  overflow-x: hidden;
+  min-height: 200vh;
+  background: #161312;
+}
+
+header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 80px;
+  border-bottom: 2px solid rgba(120, 120, 120, 0.1);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -5px;
+  right: -20px;
+  bottom: -5px;
+  left: -20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+.brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.brand img {
+  width: auto;
+  height: 35px;
+}
+
+/* 스위치 */
+.switcher {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+/* 스위치 커스텀 디자인 */
+.switcher.is-orange input + label::after {
+  transform: translateY(-0.5px);
+}
+
+.switcher.is-orange input:checked + label::before {
+  box-shadow: inset 0 0 0 2em #fe7c01;
+}
+
+.switcher.is-orange input:checked:focus + label::before {
+  border: 1px solid #ae3c01;
+}
+
+/* 앨범 리스트 */
+.album-list {
+  width: 100%;
+  min-width: 400px;
+  max-width: 1200px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style: none;
+  padding-left: 0;
+}
+
+.album-list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 1199px) {
+  .album-list {
+    width: 800px;
+  }
+}
+
+@media (max-width: 799px) {
+  .album-list {
+    width: 400px;
+  }
+}
+
+/* 앨범 카드 */
+.album-card {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  width: 340px;
+  height: 340px;
+  margin: 30px;
+  transition: box-shadow 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 700px;
+}
+
+.album-card:hover {
+  box-shadow: 0 0 0 1px #ff6a03, 0 0 40px 5px hsla(25, 100%, 51%, 0.3);
+}
+
+/* 앨범 사진 앞,뒤 커버를 같은 지점에 위치 */
+.album-card * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  backface-visibility: hidden; /* 뒤집힌 것을 감춤 */
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
+}
+
+/* 앨범 커버 */
+.album-cover {
+  /* perspective 값이 커질수록 왜곡이 적어지게 된다. 즉, 관찰자 위치가 가까이서 본 형태의 3d 로 나타난다. */
+  /* perspective 값을 동시에 제어하기 위해서는 부모에 사용할 수 있다. */
+  /* transform:perspective(400px) rotateX(45deg); */
+}
+
+/* 앨범 플레이어 */
+.album-player {
+  border: none;
+  transform: rotateX(
+    180deg
+  ); /* 180도를 뒤집었을 때 부모에 3D 공간 설정을 위해 transform-style: preserve-3d 설정 */
+}
+
+.album-card:hover .album-cover,
+.all-view-albums .album-cover {
+  transform: scale(0.85) rotateX(180deg);
+}
+
+.album-card:hover .album-player,
+.all-view-albums .album-player {
+  transform: scale(0.85) rotateX(0deg);
+}
+
+/* is-rotate-y 모션 */
+.album-card.is-rotate-y .album-player,
+.all-view-albums .is-rotate-y .album-player {
+  transform: rotateY(180deg);
+}
+
+.album-card.is-rotate-y:hover .album-cover,
+.all-view-albums .is-rotate-y .album-cover {
+  transform: scale(0.85) rotateY(180deg);
+}
+
+.album-card.is-rotate-y:hover .album-player,
+.all-view-albums .is-rotate-y .album-player {
+  transform: scale(0.85) rotateY(0deg);
+}
+
+/* is-zoom-in 모션 */
+.album-card.is-zoom-in .album-player,
+.all-view-albums .is-zoom-in .album-player {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.album-card.is-zoom-in:hover .album-cover,
+.all-view-albums .is-zoom-in .album-cover {
+  opacity: 0;
+  transform: scale(2);
+}
+
+.album-card.is-zoom-in:hover .album-player,
+.all-view-albums .is-zoom-in .album-player {
+  opacity: 1;
+  transform: scale(0.85);
+}
+
+/* is-zoom-out 모션 */
+.album-card.is-zoom-out .album-player,
+.all-view-albums .is-zoom-out .album-player {
+  opacity: 0;
+  transform: scale(2);
+}
+
+.album-card.is-zoom-out:hover .album-cover,
+.all-view-albums .is-zoom-out .album-cover {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.album-card.is-zoom-out:hover .album-player,
+.all-view-albums .is-zoom-out .album-player {
+  opacity: 1;
+  transform: scale(0.85);
+}
+
+.switcher {
+  /*   display: inline-block; */
+  margin: 1.5em 0;
+  font-size: 16px;
+}
+
+/* 크기 설정 클래스 */
+.switcher.is-xsmall {
+  font-size: 12px;
+}
+.switcher.is-small {
+  font-size: 14px;
+}
+.switcher.is-large {
+  font-size: 18px;
+}
+.switcher.is-xlarge {
+  font-size: 20px;
+}
+
+/* 초기 상태(Initial State) ------------------------------- */
+
+.switcher input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0;
+}
+
+.switcher label {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-left: 3.5em;
+  font-weight: bold;
+  color: #98afc7;
+}
+
+.switcher *,
+.switcher *::before,
+.switcher *::after {
+  box-sizing: border-box;
+  transition: 0.35s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.switcher label::before {
+  content: "";
+  position: absolute;
+  top: -0.4em;
+  left: 0;
+  width: 3em;
+  height: 2em;
+  background: #e3edfa;
+  border-radius: 3em;
+  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.switcher label::after {
+  content: "";
+  position: absolute;
+  top: -0.28em;
+  left: 0.1em;
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 3em;
+  background: #fff;
+}
+
+/* 종료 상태(Final State) --------------------------------- */
+
+.switcher input:checked + label {
+  color: #253467;
+}
+
+.switcher input:checked + label::before {
+  box-shadow: inset 0 0 0 2em #0f94fa;
+}
+
+.switcher input:checked + label::after {
+  left: 1.1em;
+}
+
+/* 포커스 상태(Focus State) --------------------------------- */
+
+.switcher input:focus + label::before {
+  box-shadow: inset 0 0 0 2em #d0d0d0;
+}
+
+.switcher input:checked:focus + label::before {
+  box-shadow: inset 0 0 0 2em #0f94fa;
+  border: 1px solid #0f64da;
+}
