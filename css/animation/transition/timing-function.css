@@ -1,0 +1,18 @@
+main {
+  width: 100%;
+  padding: 30px;
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 24px;
+    background: gray;
+    border-radius: 999px;
+
+    &:hover {
+      transition-property: transform;
+      transform: scale(1.2);
+      transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+      transition-duration: 300ms;
+    }
+  }
+}

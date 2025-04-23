@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 시맨틱 태그 가이드</title>
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        line-height: 1.6;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      section {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+      }
+      .tag-name {
+        font-weight: bold;
+        color: #2c3e50;
+        background-color: #f8f9fa;
+        padding: 0 5px;
+        border-radius: 3px;
+      }
+      .tag-group {
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ccc;
+      }
+      .example {
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border-left: 3px solid #3498db;
+      }
+      .deprecated {
+        background-color: #fee;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border-left: 3px solid #e74c3c;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>HTML5 시맨틱 태그 가이드</h1>
+      <p>
+        시멘틱 태그를 일상적으로 사용하는 습관을 형성하기 위해 꾸준히 연습하고
+        있다.
+      </p>
+      <p>
+        이를 위해 한눈에 알아볼 수 있는 학습 자료가 부족하여 직접 자료를
+        제작하였다.
+      </p>
+    </header>
+
+    <main>
+      <!-- 문서 구조 관련 태그 -->
+      <section class="tag-group">
+        <h2>문서 구조 관련 태그</h2>
+
+        <section>
+          <h3><span class="tag-name">&lt;header&gt;</span> - 헤더</h3>
+          <p>
+            문서나 섹션의 머리말 부분을 정의합니다. 주로 제목, 로고, 네비게이션
+            등을 포함합니다.
+          </p>
+          <div class="example">
+            <header>
+              <h1>웹사이트 제목</h1>
+              <p>이것은 헤더 영역입니다.</p>
+            </header>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;main&gt;</span> - 메인 콘텐츠</h3>
+          <p>
+            문서의 주요 내용을 담는 영역입니다. 문서당 하나만 사용해야 합니다.
+          </p>
+          <div class="example">
+            <main>
+              <p>이 부분은 문서의 메인 콘텐츠입니다.</p>
+            </main>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;footer&gt;</span> - 푸터</h3>
+          <p>
+            문서나 섹션의 끝부분을 정의합니다. 저작권 정보, 연락처, 사이트맵
+            등을 포함합니다.
+          </p>
+          <div class="example">
+            <footer>
+              <p>© 2023 웹사이트. 모든 권리 보유.</p>
+            </footer>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;nav&gt;</span> - 네비게이션</h3>
+          <p>웹 사이트의 주요 탐색 링크를 모아놓은 영역을 정의합니다.</p>
+          <div class="example">
+            <nav>
+              <ul>
+                <li><a href="#">홈</a></li>
+                <li><a href="#">서비스</a></li>
+                <li><a href="#">연락처</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;section&gt;</span> - 섹션</h3>
+          <p>
+            문서의 독립적인 섹션을 정의합니다. 일반적으로 제목(h1-h6)을
+            포함합니다.
+          </p>
+          <div class="example">
+            <section>
+              <h2>섹션 제목</h2>
+              <p>이것은 독립적인 섹션 내용입니다.</p>
+            </section>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;article&gt;</span> - 아티클</h3>
+          <p>
+            독립적으로 배포하거나 재사용할 수 있는 완결된 내용을 정의합니다.
+            뉴스 기사, 블로그 포스트, 사용자 댓글 등에 적합합니다.
+          </p>
+          <div class="example">
+            <article>
+              <h3>기사 제목</h3>
+              <p>이것은 독립적인 기사의 내용입니다.</p>
+              <footer>작성자: 홍길동</footer>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;aside&gt;</span> - 사이드바</h3>
+          <p>
+            주요 콘텐츠와 간접적으로 연관된 부가 정보를 담는 영역을 정의합니다.
+            사이드바, 광고, 관련 링크 등에 적합합니다.
+          </p>
+          <div class="example">
+            <aside>
+              <h3>관련 링크</h3>
+              <ul>
+                <li><a href="#">관련 기사 1</a></li>
+                <li><a href="#">관련 기사 2</a></li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+      </section>
+
+      <!-- 텍스트 강조 관련 태그 -->
+      <section class="tag-group">
+        <h2>텍스트 강조 관련 태그</h2>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;strong&gt;</span> vs
+            <span class="tag-name">&lt;b&gt;</span>
+          </h3>
+          <p>
+            <strong>strong</strong>: 중요한 텍스트를 강조합니다. 의미적으로
+            중요성을 나타냅니다.
+          </p>
+          <p>
+            <b>b</b>: 단순히 굵은 글씨를 표시합니다. 시각적 표현만을 위한
+            태그입니다.
+          </p>
+          <div class="example">
+            <p><strong>이 부분은 중요합니다.</strong> (strong 태그)</p>
+            <p><b>이 부분은 굵게 표시됩니다.</b> (b 태그)</p>
+          </div>
+        </section>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;em&gt;</span> vs
+            <span class="tag-name">&lt;i&gt;</span>
+          </h3>
+          <p>
+            <em>em</em>: 강조하는 텍스트를 정의합니다. 의미적으로 강조를
+            나타냅니다.
+          </p>
+          <p>
+            <i>i</i>: 단순히 이탤릭체를 표시합니다. 시각적 표현만을 위한
+            태그입니다.
+          </p>
+          <div class="example">
+            <p><em>이 부분은 강조됩니다.</em> (em 태그)</p>
+            <p><i>이 부분은 이탤릭체로 표시됩니다.</i> (i 태그)</p>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;mark&gt;</span> - 하이라이트</h3>
+          <p>텍스트를 하이라이트(형광펜 효과)하여 강조합니다.</p>
+          <div class="example">
+            <p>이 문장에서 <mark>중요한 부분</mark>을 하이라이트했습니다.</p>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;cite&gt;</span> - 인용 출처</h3>
+          <p>작품의 제목(책, 노래, 영화 등)을 표시할 때 사용합니다.</p>
+          <div class="example">
+            <p><cite>토지</cite>는 박경리 작가의 대하소설입니다.</p>
+          </div>
+        </section>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;blockquote&gt;</span> vs
+            <span class="tag-name">&lt;q&gt;</span>
+          </h3>
+          <p>blockquote: 긴 인용문을 나타냅니다. 별도의 단락으로 표시됩니다.</p>
+          <p>q: 짧은 인용구를 나타냅니다. 인라인 요소입니다.</p>
+          <div class="example">
+            <blockquote>
+              <p>삶이 있는 한 희망은 있다.</p>
+              <footer>- <cite>키케로</cite></footer>
+            </blockquote>
+            <p>키케로는 <q>삶이 있는 한 희망은 있다</q>라고 말했습니다.</p>
+          </div>
+        </section>
+      </section>
+
+      <!-- 특수 콘텐츠 태그 -->
+      <section class="tag-group">
+        <h2>특수 콘텐츠 태그</h2>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;figure&gt;</span> 및
+            <span class="tag-name">&lt;figcaption&gt;</span>
+          </h3>
+          <p>
+            독립적인 콘텐츠(이미지, 다이어그램, 코드 등)와 그 설명을
+            그룹화합니다.
+          </p>
+          <div class="example">
+            <figure>
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="예시 이미지"
+              />
+              <figcaption>그림 1: 예시 이미지 설명</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;time&gt;</span> - 시간</h3>
+          <p>
+            날짜나 시간을 나타냅니다. datetime 속성을 통해 기계가 읽을 수 있는
+            형식을 제공합니다.
+          </p>
+          <div class="example">
+            <p>
+              공연 일시:
+              <time datetime="2023-12-25T20:00">2023년 12월 25일 저녁 8시</time>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;address&gt;</span> - 연락처 정보</h3>
+          <p>
+            연락처 정보를 나타냅니다. 주로, 이메일 주소, 전화번호, 물리적 주소
+            등이 포함됩니다.
+          </p>
+          <div class="example">
+            <address>
+              웹사이트 관리자:
+              <a href="mailto:admin@example.com">admin@example.com</a><br />
+              서울특별시 강남구 테헤란로 123
+            </address>
+          </div>
+        </section>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;details&gt;</span> 및
+            <span class="tag-name">&lt;summary&gt;</span>
+          </h3>
+          <p>
+            접을 수 있는 위젯을 만듭니다. 사용자가 클릭하여 추가 정보를 볼 수
+            있습니다.
+          </p>
+          <div class="example">
+            <details>
+              <summary>더 자세한 정보 보기</summary>
+              <p>
+                여기에 추가 정보가 표시됩니다. 사용자가 '더 자세한 정보 보기'를
+                클릭하면 이 내용이 보입니다.
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
+
+      <!-- 폼 관련 태그 -->
+      <section class="tag-group">
+        <h2>폼 관련 태그</h2>
+
+        <section>
+          <h3>
+            <span class="tag-name">&lt;fieldset&gt;</span> 및
+            <span class="tag-name">&lt;legend&gt;</span>
+          </h3>
+          <p>관련된 폼 요소들을 그룹화하고 레이블을 부여합니다.</p>
+          <div class="example">
+            <form>
+              <fieldset>
+                <legend>개인 정보</legend>
+                <label for="name">이름:</label>
+                <input type="text" id="name" /><br />
+                <label for="email">이메일:</label>
+                <input type="email" id="email" />
+              </fieldset>
+            </form>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;output&gt;</span> - 계산 결과</h3>
+          <p>계산 결과를 표시하는 데 사용됩니다.</p>
+          <div class="example">
+            <form
+              oninput="result.value = parseInt(a.value) + parseInt(b.value)"
+            >
+              <input type="number" id="a" name="a" value="0" /> +
+              <input type="number" id="b" name="b" value="0" /> =
+              <output name="result" for="a b">0</output>
+            </form>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;progress&gt;</span> - 진행 상태</h3>
+          <p>작업의 완료 진행 상태를 나타냅니다.</p>
+          <div class="example">
+            <label for="task-progress">작업 진행률:</label>
+            <progress id="task-progress" value="70" max="100">70%</progress>
+          </div>
+        </section>
+
+        <section>
+          <h3><span class="tag-name">&lt;meter&gt;</span> - 측정값</h3>
+          <p>
+            알려진 범위 내의 스칼라 측정값을 나타냅니다. (예: 디스크 사용량,
+            투표율 등)
+          </p>
+          <div class="example">
+            <label for="disk-usage">디스크 사용량:</label>
+            <meter id="disk-usage" value="0.7" min="0" max="1">70%</meter>
+          </div>
+        </section>
+      </section>
+
+      <!-- HTML5에서 지원 중단된 태그들 -->
+      <section class="tag-group">
+        <h2>HTML5에서 더 이상 지원하지 않는 태그들</h2>
+
+        <div class="deprecated">
+          <h3>
+            <span class="tag-name">&lt;center&gt;</span>,
+            <span class="tag-name">&lt;font&gt;</span>,
+            <span class="tag-name">&lt;basefont&gt;</span>
+          </h3>
+          <p>
+            HTML5에서는 더 이상 지원하지 않습니다. 대신 CSS를 사용하여 텍스트
+            스타일과 정렬을 지정해야 합니다.
+          </p>
+        </div>
+
+        <div class="deprecated">
+          <h3>
+            <span class="tag-name">&lt;frame&gt;</span>,
+            <span class="tag-name">&lt;frameset&gt;</span>,
+            <span class="tag-name">&lt;noframes&gt;</span>
+          </h3>
+          <p>
+            HTML5에서는 더 이상 지원하지 않습니다. 대신 iframe 또는 CSS
+            레이아웃을 사용해야 합니다.
+          </p>
+        </div>
+
+        <div class="deprecated">
+          <h3><span class="tag-name">&lt;acronym&gt;</span></h3>
+          <p>
+            HTML5에서는 더 이상 지원하지 않습니다. 대신
+            <span class="tag-name">&lt;abbr&gt;</span> 태그를 사용해야 합니다.
+          </p>
+        </div>
+
+        <div class="deprecated">
+          <h3>
+            <span class="tag-name">&lt;big&gt;</span>,
+            <span class="tag-name">&lt;strike&gt;</span>,
+            <span class="tag-name">&lt;tt&gt;</span>
+          </h3>
+          <p>
+            HTML5에서는 더 이상 지원하지 않습니다. 대신 CSS를 사용하여 텍스트
+            스타일을 지정해야 합니다.
+          </p>
+        </div>
+
+        <div class="deprecated">
+          <h3><span class="tag-name">&lt;applet&gt;</span></h3>
+          <p>
+            HTML5에서는 더 이상 지원하지 않습니다. 대신
+            <span class="tag-name">&lt;object&gt;</span> 태그를 사용해야 합니다.
+          </p>
+        </div>
+
+        <div class="deprecated">
+          <h3>
+            <span class="tag-name">&lt;dir&gt;</span>,
+            <span class="tag-name">&lt;menu&gt;</span> (이전 버전)
+          </h3>
+          <p>
+            HTML5에서는 더 이상 이전 형태로 지원하지 않습니다.
+            <span class="tag-name">&lt;menu&gt;</span>는 HTML5에서 새로운 의미로
+            재정의되었습니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        웹 접근성과 검색 엔진 최적화(SEO)를 위해 적절한 시맨틱 태그를 사용하자.
+      </p>
+    </footer>
+  </body>
+</html>
