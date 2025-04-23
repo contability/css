@@ -1,33 +1,784 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8">
-        <title>grid</title>
-    </head>
-    <link rel="stylesheet" href="../css/grid.css">
-    <body>
-        <!-- <article>
-            <section>
-                <img src="../assets/img/I_grid01.jpeg" alt="" style="height: 32rem;">
-                <ul>
-                    <li>그리드 컨테이너</li>
-                    <p>display: grid를 적용하는, Grid의 전체 영역입니다. Grid 컨테이너 안의 요소들이 Grid 규칙의 영향을 받아 정렬된다고 생각하면 됩니다. 현재 코드 .containver 가 Grid 컨테이너예요.</p>
-                </ul>
-            </section>
-        </article> -->
-        <!-- Grid Container -->
-        <!-- 컨테이너가 Grid의 영향을 받는 전체 공간이고, 설정된 속성에 따라 각각의 아이템들이 어떤 형태로 배치되는 것 -->
-        <div class="container">
-            <!-- Grid Item -->
-            <div class="item">A</div>
-            <div class="item">B</div>
-            <div class="item">C</div>
-            <div class="item">D</div>
-            <div class="item">E</div>
-            <div class="item">F</div>
-            <div class="item">G</div>
-            <div class="item">H</div>
-            <div class="item">I</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>이번에야말로 CSS Grid를 익혀보자</title>
+    <link rel="stylesheet" href="../css/grid.css" />
+  </head>
+  <body>
+    <div class="tutorial-container">
+      <header class="tutorial-header">
+        <h1>이번에야말로 CSS Grid를 익혀보자</h1>
+        <p>
+          이 튜토리얼은 "차세대 CSS 레이아웃" 시리즈의 두번째 포스트입니다. CSS
+          레이아웃의 끝판왕이라고 할 수 있는 Grid(그리드) 튜토리얼에 잘 오셨다.
+        </p>
+      </header>
+
+      <section class="tutorial-section">
+        <h2>Grid와 Flex의 차이</h2>
+        <p>앞서 공부한 Flex와 지금 공부할 Grid의 큰 차이점은</p>
+        <ul>
+          <li>Flex는 한 방향 레이아웃 시스템이고 (1차원)</li>
+          <li>Grid는 두 방향(가로-세로) 레이아웃 시스템 (2차원)</li>
+        </ul>
+        <p>
+          이라는 점이다. 따라서 Flex보다 더 복합적인 레이아웃 표현이 가능하다.
+        </p>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>Grid에 관한 오해</h2>
+        <div class="warning">
+          <p>
+            "Grid는 인터넷 익스플로러(이하 IE)에서 지원하지 않기 때문에,
+            우리나라에서는 그림의 떡이다."
+          </p>
         </div>
-    </body>
+        <p>
+          아니다. IE 10과 11에서도 구버전 스펙을 지원을 하기 때문에 좀 귀찮기는
+          해도 지원할 방법이 있다. 분명 한계는 있지만, 뭐가 다른지를 잘 알아두고
+          대응하면 충분히 사용할 수 있다.
+        </p>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>용어 정리</h2>
+        <article>
+          <section>
+            <img
+              src="../assets/img/I_grid01.jpeg"
+              alt="CSS Grid 용어 설명 다이어그램"
+              style="max-width: 100%; height: auto; margin-bottom: 20px"
+            />
+          </section>
+        </article>
+
+        <div class="grid-terms">
+          <div class="grid-term">
+            <h3>그리드 컨테이너 (Grid Container)</h3>
+            <p>
+              display: grid를 적용하는, Grid의 전체 영역이다. Grid 컨테이너 안의
+              요소들이 Grid 규칙의 영향을 받아 정렬된다고 생각하면 된다.
+            </p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 아이템 (Grid Item)</h3>
+            <p>
+              Grid 컨테이너의 자식 요소들이다. 바로 이 아이템들이 Grid 규칙에
+              의해 배치되는 것이다.
+            </p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 트랙 (Grid Track)</h3>
+            <p>Grid의 행(Row) 또는 열(Column)을 의미한다.</p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 셀 (Grid Cell)</h3>
+            <p>
+              Grid의 한 칸을 가리키는 말이다. 실제 html 요소는 그리드
+              아이템이고, 이런 Grid 아이템 하나가 들어가는 "가상의 칸(틀)"이라고
+              생각하면 된다.
+            </p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 라인(Grid Line)</h3>
+            <p>Grid 셀을 구분하는 선이다.</p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 번호(Grid Number)</h3>
+            <p>Grid 라인의 각 번호이다.</p>
+          </div>
+          <div class="grid-term">
+            <h3>그리드 갭(Grid Gap)</h3>
+            <p>Grid 셀 사이의 간격이다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>기본 HTML 구조</h2>
+        <p>
+          Grid 레이아웃을 만들기 위한 기본적인 HTML 구조는 다음과 같다. Flex와
+          마찬가지로, 컨테이너와 아이템이 있으면 된다.
+        </p>
+        <div class="code-block">
+          <pre><code>&lt;div class="container"&gt;
+    &lt;div class="item"&gt;A&lt;/div&gt;
+    &lt;div class="item"&gt;B&lt;/div&gt;
+    &lt;div class="item"&gt;C&lt;/div&gt;
+    &lt;div class="item"&gt;D&lt;/div&gt;
+    &lt;div class="item"&gt;E&lt;/div&gt;
+    &lt;div class="item"&gt;F&lt;/div&gt;
+    &lt;div class="item"&gt;G&lt;/div&gt;
+    &lt;div class="item"&gt;H&lt;/div&gt;
+    &lt;div class="item"&gt;I&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <p>
+          부모 요소인 div.container를
+          <strong>Grid Container(그리드 컨테이너)</strong>라고 부르고, 자식
+          요소인 div.item들을 <strong>Grid Item(그리드 아이템)</strong>이라고
+          부른다. 컨테이너가 Grid의 영향을 받는 전체 공간이고, 설정된 속성에
+          따라 각각의 아이템들이 어떤 형태로 배치되는 것이라고 생각하면 된다.
+        </p>
+        <p>
+          Flex와 마찬가지로, Grid는 컨테이너에 <code>display: grid;</code>를
+          설정하는 것으로 시작한다.
+        </p>
+        <div class="code-block">
+          <pre><code>.container {
+    display: grid;
+    grid-template-rows: 100px 100px 200px;
+    grid-template-columns: 100px 100px 200px;
+}</code></pre>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>그리드 형태 정의</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <p>
+              <code>grid-template-rows</code>는 행(row)의 배치를,
+              <code>grid-template-columns</code>는 열(column)의 배치를 정의한다.
+            </p>
+
+            <h3 class="example-title">픽셀 단위 그리드</h3>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-rows: 100px 100px 200px;
+    grid-template-columns: 100px 100px 200px;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container template-basic">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H</div>
+              <div class="grid-item">I</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">fr 단위 그리드</h3>
+            <p>
+              fr 단위를 사용하면 비율 기반으로 트랙의 크기를 설정할 수 있다.
+            </p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container template-fr">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H</div>
+              <div class="grid-item">I</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">repeat() 함수 사용 그리드</h3>
+            <p>repeat 함수를 사용하면 반복되는 값을 자동으로 처리할 수 있다.</p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container template-repeat">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H</div>
+              <div class="grid-item">I</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>minmax 함수</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">minmax() 함수 사용</h3>
+            <p>최소값과 최대값을 지정할 수 있다.</p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-rows: repeat(3, minmax(100px, auto));
+    grid-template-columns: repeat(3, 1fr);
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container minmax-example">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H</div>
+              <div class="grid-item">I</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>auto-fill, auto-fit</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">
+              auto-fill 예제 (공간이 남으면 빈 칸 유지)
+            </h3>
+            <p>
+              컬럼의 개수를 미리 정하지 않고 설정된 너비가 허용하는 한
+              최대한으로 셀을 채운다. <strong>옆으로 크기를 조절</strong>해보면
+              차이를 확인할 수 있다.
+            </p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-auto-rows: 80px;
+    gap: 10px;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container auto-fill-example">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">auto-fit 예제 (공간을 꽉 채움)</h3>
+            <p>auto-fit은 빈 공간 없이 채운다는 점이 auto-fill과 다르다.</p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-auto-rows: 80px;
+    gap: 10px;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container auto-fit-example">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>Gap (간격)</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">균등 간격 (gap: 20px)</h3>
+            <p>Grid 셀 사이의 간격을 설정한다.</p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    gap: 20px; /* 모든 간격을 20px로 */
+}</code></pre>
+            </div>
+            <p>
+              초기에는 앞에 gird-를 붙여서 grid-gap, grid-row-gap,
+              grid-column-gap이었는데, 브라우저 호환 범위를 넓히기 위해 이전
+              버전의 이름과 현재 버전의 이름을 둘 다 쓰기도 한다.
+            </p>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container gap-example-1">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H</div>
+              <div class="grid-item">I</div>
+              <div class="grid-item">J</div>
+              <div class="grid-item">K</div>
+              <div class="grid-item">L</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">
+              행/열 간격 개별 설정 (row-gap: 10px; column-gap: 30px)
+            </h3>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 80px);
+    row-gap: 10px; /* 행 간격만 설정 */
+    column-gap: 30px; /* 열 간격만 설정 */
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container gap-example-2">
+              <div class="grid-item">
+                A<span class="row-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                B<span class="row-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                C<span class="row-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                D<span class="row-gap-indicator"></span
+                ><span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                E<span class="row-gap-indicator"></span
+                ><span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                F<span class="row-gap-indicator"></span
+                ><span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                G<span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                H<span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">
+                I<span class="col-gap-indicator"></span>
+              </div>
+              <div class="grid-item">J</div>
+              <div class="grid-item">K</div>
+              <div class="grid-item">L</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>grid-auto-rows, grid-auto-columns</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">
+              grid-auto-rows 예제 (콘텐츠 양에 따라 행 높이 조정)
+            </h3>
+            <p>
+              그리드 형태를 자동으로 정의할 수 있다. 내용의 양에 따라 행 높이가
+              자동으로 조정된다.
+            </p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    /* 또는 minmax 사용 */
+    /* grid-auto-rows: minmax(50px, auto); */
+    gap: 10px;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container auto-rows-example">
+              <div class="grid-item">A<br />(기본)</div>
+              <div class="grid-item">B<br />더 많은<br />콘텐츠</div>
+              <div class="grid-item">C<br />(기본)</div>
+              <div class="grid-item">D<br />(기본)</div>
+              <div class="grid-item">
+                E<br />훨씬<br />더 많은<br />콘텐츠<br />가 있는<br />그리드 셀
+              </div>
+              <div class="grid-item">F<br />(기본)</div>
+              <div class="grid-item">G<br />(기본)</div>
+              <div class="grid-item">H<br />조금<br />더 많은<br />콘텐츠</div>
+              <div class="grid-item">I<br />(기본)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">
+              grid-auto-columns 예제 (콘텐츠 양에 따라 열 너비 조정)
+            </h3>
+            <p>
+              grid-auto-columns는 열의 너비를 자동으로 조정한다.
+              (grid-auto-flow: column 설정 필요)
+            </p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-rows: repeat(3, 80px);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    /* 또는 minmax 사용 */
+    /* grid-auto-columns: minmax(100px, auto); */
+    gap: 10px;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="grid-container auto-columns-example">
+              <div class="grid-item">A</div>
+              <div class="grid-item">B (더 넓은 콘텐츠)</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D (훨씬 더 넓은 콘텐츠)</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item">F (더 넓은 콘텐츠)</div>
+              <div class="grid-item">G</div>
+              <div class="grid-item">H (훨씬 더 넓은 콘텐츠)</div>
+              <div class="grid-item">I</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>Grid Area</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">grid-template-areas 예제</h3>
+            <p>
+              각 영역(Grid Area)에 이름을 붙이고, 그 이름을 이용해서 배치하는
+              방법이다.
+            </p>
+            <div class="code-block">
+              <pre><code>.container {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "a main b"
+        ". . ."
+        "footer footer footer";
+}</code></pre>
+            </div>
+            <p>
+              위와 같이 각자 차지하는 셀의 개수 만큼 해당 위치에 이름을 써주면
+              되고, 각 셀마다 공백을 하나씩 넣어서 구분한다. 빈 칸은 마침표(.)
+              또는 none을 사용한다.
+            </p>
+            <div class="code-block">
+              <pre><code>.header {
+    grid-area: header;
+}
+.sidebar-a {
+    grid-area: a;
+}
+.main_content {
+    grid-area: main;
+}
+.sidebar-b {
+    grid-area: b;
+}
+.footer {
+    grid-area: footer;
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="areas-example">
+              <div class="header">Header</div>
+              <div class="sidebar-a">Sidebar A</div>
+              <div class="main_content">Main Content</div>
+              <div class="sidebar-b">Sidebar B</div>
+              <div class="footer">Footer</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>Grid 아이템 제어</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">Grid 아이템 영역 확장</h3>
+            <h3>grid-column, grid-row</h3>
+            <p>Grid 아이템에 적용하는 속성으로, 각 셀의 영역을 지정한다.</p>
+            <div class="code-block">
+              <pre><code>.item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+    /* 단축 속성 */
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    
+    /* span 사용 */
+    grid-column: 1 / span 2; /* 1번 라인에서 2칸 */
+    grid-row: 1 / span 3; /* 1번 라인에서 3칸 */
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="item-control-example">
+              <div class="grid-item item-span-col">A (열 2칸)</div>
+              <div class="grid-item item-span-row">B (행 2칸)</div>
+              <div class="grid-item">C</div>
+              <div class="grid-item">D</div>
+              <div class="grid-item">E</div>
+              <div class="grid-item item-span-both">F (행 열 각 2칸)</div>
+              <div class="grid-item">G</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>정렬</h2>
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">align-self, justify-self 정렬 예제</h3>
+            <h3>align-self, justify-self</h3>
+            <p>개별 아이템의 세로/가로 정렬을 지정한다.</p>
+            <div class="code-block">
+              <pre><code>.item {
+    /* 세로 정렬 */
+    align-self: stretch;
+    /* align-self: start; */
+    /* align-self: center; */
+    /* align-self: end; */
+    
+    /* 가로 정렬 */
+    justify-self: stretch;
+    /* justify-self: start; */
+    /* justify-self: center; */
+    /* justify-self: end; */
+    
+    /* 단축 속성 */
+    place-self: start center; /* align-self: start; justify-self: center; */
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="alignment-example">
+              <div class="grid-item align-start">align-start</div>
+              <div class="grid-item align-center">align-center</div>
+              <div class="grid-item align-end">align-end</div>
+              <div class="grid-item justify-start">justify-start</div>
+              <div class="grid-item place-center">place-center</div>
+              <div class="grid-item justify-end">justify-end</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">order 속성 예제</h3>
+            <h3>order</h3>
+            <p>
+              각 아이템들의 시각적 나열 순서를 결정한다. 작은 숫자일수록 먼저
+              배치된다.
+            </p>
+            <div class="code-block">
+              <pre><code>.item:nth-child(2) {
+    order: 3;
+}
+.item:nth-child(3) {
+    order: 2;
+}</code></pre>
+            </div>
+            <div class="warning">
+              <p>
+                "시각적" 순서일 뿐, HTML 자체의 구조를 바꾸는 것은 아니므로
+                접근성 측면에서 사용에 주의해야 한다. 스크린 리더로 화면을 읽을
+                때, order를 이용해 순서를 바꾼 것은 의미가 없다는 것을 기억하자.
+              </p>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="order-example">
+              <div class="grid-item order-2">A (order: 2)</div>
+              <div class="grid-item order-3">B (order: 3)</div>
+              <div class="grid-item order-1">C (order: 1)</div>
+              <div class="grid-item">D (기본값: 0)</div>
+              <div class="grid-item order-negative">E (order: -1)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-container">
+          <div class="grid-description">
+            <h3 class="example-title">z-index 예제</h3>
+            <h3>z-index</h3>
+            <p>z-index로 Z축 정렬을 할 수 있다. 숫자가 클수록 위로 올라온다.</p>
+            <div class="code-block">
+              <pre><code>.item:nth-child(5) {
+    z-index: 1;
+    transform: scale(2);
+}</code></pre>
+            </div>
+          </div>
+          <div class="grid-examples">
+            <div class="z-index-example">
+              <div class="grid-item z-bottom">아래 (z-index: -1)</div>
+              <div class="grid-item overlap-item">중간 (z-index: 기본값)</div>
+              <div class="grid-item z-top">위 (z-index: 1)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tutorial-section">
+        <h2>IE 지원</h2>
+        <p>IE 10, 11에서 사용할 수 있는 Grid 속성은 다음과 같다.</p>
+        <table
+          border="1"
+          style="width: 100%; border-collapse: collapse; margin-bottom: 20px"
+        >
+          <thead>
+            <tr>
+              <th style="padding: 10px; background-color: #f5f5f5">표준😃</th>
+              <th style="padding: 10px; background-color: #f5f5f5">
+                그지같은 IE😩
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px">display: grid;</td>
+              <td style="padding: 10px">display: -ms-grid;</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">grid-template-rows</td>
+              <td style="padding: 10px">-ms-grid-rows</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">grid-template-columns</td>
+              <td style="padding: 10px">-ms-grid-columns</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">grid-row-start</td>
+              <td style="padding: 10px">-ms-grid-row</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">grid-column-start</td>
+              <td style="padding: 10px">-ms-grid-column</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">
+                grid-row: 1 / span 2;에서 span 2 대신
+              </td>
+              <td style="padding: 10px">-ms-grid-row-span: 2</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">
+                grid-column: 1 / span 2;에서 span 2 대신
+              </td>
+              <td style="padding: 10px">-ms-grid-column-span: 2</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">align-self</td>
+              <td style="padding: 10px">-ms-grid-row-align</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px">justify-self</td>
+              <td style="padding: 10px">-ms-grid-column-align</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- 반응형 그리드 레이아웃 섹션 추가 -->
+    <section class="tutorial-section">
+      <h2>반응형 그리드 레이아웃</h2>
+      <div class="example-container">
+        <div class="grid-description">
+          <p>
+            CSS Grid는 반응형 디자인을 만들기 위한 강력한 도구다. auto-fit,
+            minmax와 같은 기능을 함께 사용하면 다양한 화면 크기에 자동으로
+            대응하는 레이아웃을 쉽게 만들 수 있다.
+          </p>
+          <div class="code-block">
+            <pre><code>.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  gap: 15px;
+}</code></pre>
+          </div>
+          <p>위 코드에서 사용된 속성들의 의미:</p>
+          <ul>
+            <li>
+              <code>repeat(auto-fit, minmax(200px, 1fr))</code>: 컬럼 폭이 최소
+              200px이고, 가능한 많은 컬럼을 배치
+            </li>
+            <li>
+              <code>minmax(100px, auto)</code>: 행 높이는 최소 100px, 필요하면
+              콘텐츠에 따라 자동 확장
+            </li>
+            <li><code>gap: 15px</code>: 그리드 아이템 사이의 간격</li>
+          </ul>
+          <p>
+            <strong>브라우저 창의 크기를 조절</strong>해 보면 그리드 레이아웃이
+            자동으로 조정되는 것을 확인할 수 있다.
+          </p>
+        </div>
+        <div class="grid-examples">
+          <h3 class="example-title">반응형 그리드 레이아웃 예제</h3>
+          <div class="responsive-grid">
+            <div class="grid-item">A</div>
+            <div class="grid-item">B</div>
+            <div class="grid-item">C</div>
+            <div class="grid-item">D</div>
+            <div class="grid-item">E</div>
+            <div class="grid-item">F</div>
+            <div class="grid-item">G</div>
+            <div class="grid-item">H</div>
+            <div class="grid-item">I</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
