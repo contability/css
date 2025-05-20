@@ -1,0 +1,27 @@
+body,
+.jumbotron {
+  background: rgb(235, 226, 226);
+  padding: 100px;
+}
+.content {
+  background: #fff;
+  padding: 50px;
+  font-size: 19px;
+  line-height: 30px;
+  min-height: 3000px;
+}
+
+.scroll-line {
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  top: 0;
+  left: 0;
+  height: 10px;
+  position: fixed;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
